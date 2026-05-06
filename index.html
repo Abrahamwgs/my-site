@@ -6,118 +6,155 @@
   <title>Abraham Worku | AI-Powered Web Developer</title>
 
   <style>
+    :root {
+      --primary: #38bdf8;
+      --bg: #020617;
+      --card-bg: #1e293b;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #020617);
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+      50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
+      100% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
     }
 
     header {
       padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     header h1 {
-      color: #38bdf8;
+      color: var(--primary);
       margin: 0;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .hero {
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 120px 20px 80px;
+      animation: fadeInUp 1s ease-out;
     }
 
     .hero h2 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 15px;
     }
 
     .hero span {
-      color: #38bdf8;
+      color: var(--primary);
+      position: relative;
     }
 
     .hero p {
-      max-width: 600px;
-      margin: 20px auto;
-      color: #cbd5f5;
-      line-height: 1.6;
+      max-width: 650px;
+      margin: 25px auto;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
 
     .btn {
-      padding: 12px 25px;
-      background: #38bdf8;
-      color: black;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: #000;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      margin: 5px;
+      margin: 8px;
       display: inline-block;
-      transition: 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: glow 3s infinite;
     }
 
     .btn:hover {
-      background: #0ea5e9;
-      transform: scale(1.05);
+      transform: translateY(-3px) scale(1.05);
+      background: #7dd3fc;
     }
 
     .section {
-      padding: 60px 20px;
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
       text-align: center;
     }
 
     .section h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
-      border-bottom: 2px solid #38bdf8;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      position: relative;
       display: inline-block;
-      padding-bottom: 5px;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 25%;
     }
 
     .card {
-      background: #1e293b;
-      padding: 25px;
-      margin: 15px auto;
-      max-width: 700px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: var(--card-bg);
+      padding: 30px;
+      margin: 20px auto;
+      border-radius: 16px;
       text-align: left;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      animation: fadeInUp 1s both;
+    }
+
+    .card:hover {
+      transform: translateX(10px);
+      background: #273549;
+      border-color: var(--primary);
     }
 
     .card h3 {
-      color: #38bdf8;
+      color: var(--primary);
       margin-top: 0;
-      margin-bottom: 15px;
-      font-size: 20px;
+      font-size: 1.4rem;
     }
 
     .card p {
-      margin: 8px 0;
-      line-height: 1.5;
       color: #cbd5e1;
+      line-height: 1.6;
     }
 
-    .badge-link {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .badge-link:hover {
-      text-decoration: underline;
-    }
+    /* Staggered animation delays */
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      color: #94a3b8;
+      padding: 60px 20px;
+      color: #64748b;
       border-top: 1px solid #1e293b;
+      margin-top: 50px;
     }
 
-    strong {
-      color: #f8fafc;
+    .credly-box {
+      text-align: center;
+      background: linear-gradient(to right, #1e293b, #0f172a);
     }
   </style>
 </head>
@@ -129,69 +166,62 @@
 </header>
 
 <section class="hero">
-  <h2>I build <span>AI-powered applications</span></h2>
+  <h2>Building the <span>Future of AI</span></h2>
   <p>
-    Full-stack developer specializing in intelligent web and mobile solutions. 
-    Expertise in React, Node.js, MongoDB, and advanced AI agent orchestration.
+    Specialized in AI Agents, Vector Search, and Modern Web Architectures. 
+    Transforming complex data into intelligent, user-centric applications.
   </p>
 
   <a href="https://github.com/abrahamwgs" target="_blank" class="btn">GitHub</a>
   <a href="https://www.linkedin.com/in/abraham-worku" target="_blank" class="btn">LinkedIn</a>
-  <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn" style="background: #f8fafc;">View Certifications</a>
+  <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn" style="background: #fff;">Verify Badges</a>
 </section>
 
 <section class="section">
-  <h2>Featured Projects</h2>
-
+  <h2>Core Intelligence Projects</h2>
   <div class="card">
-    <h3>Simple Chat App (Android)</h3>
-    <p>Developed an Android chat application featuring online data transmission and server communication using PHP[cite: 2].</p>
+    <h3>Simple Chat & Meme Ecosystem</h3>
+    <p>Engineered Android applications featuring real-time data transmission via PHP and custom content generation tools.</p>
   </div>
-
   <div class="card">
-    <h3>MEME Generator</h3>
-    <p>Built a custom Android application allowing users to create, save, and share custom captions and images[cite: 4, 5].</p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Professional Certifications</h2>
-
-  <div class="card">
-    <h3>AI & Agent Orchestration</h3>
-    <p><strong>O'Reilly Media:</strong> AI Agents with LangGraph [cite: 17], GenAI Essentials for Everyone [cite: 14], AI Agents Core Components [cite: 22], Task Decomposition [cite: 25], and How LLMs Work[cite: 28].</p>
-    <p><strong>Advanced Skills:</strong> Designing multi-agent architectures, ReAct patterns [cite: 19], and engineering model interactions[cite: 52].</p>
-  </div>
-
-  <div class="card">
-    <h3>MongoDB & Data Strategy</h3>
-    <p><strong>Core Credentials:</strong> MongoDB Overview [cite: 40], CRUD Operations [cite: 47], and Query Optimization[cite: 49].</p>
-    <p><strong>AI Integration:</strong> Vector Search Fundamentals [cite: 43], Building AI Agents with MongoDB [cite: 45], and Memory for AI Applications[cite: 53].</p>
-  </div>
-
-  <div class="card">
-    <h3>Modern Web & Mobile Development</h3>
-    <p><strong>Frameworks:</strong> Intro to React [cite: 10], Learning Vue.js 2.0 [cite: 20], and Vibe Coding with Cursor AI[cite: 58].</p>
-    <p><strong>Mobile:</strong> Android App Dev LiveLessons [cite: 6] and ChatGPT Guide for React Native[cite: 38].</p>
-  </div>
-
-  <div class="card">
-    <h3>Programming & AI Productivity</h3>
-    <p><strong>Cisco:</strong> Python Essentials 1[cite: 26].</p>
-    <p><strong>Productivity:</strong> Effective ChatGPT Prompts [cite: 12], ChatGPT and Copilot in 4 Hours [cite: 30], and Build Your Own AI Lab[cite: 34].</p>
+    <h3>AI Agent Implementations</h3>
+    <p>Leveraging LangGraph and MongoDB to build multi-agent systems with long-term memory and task decomposition.</p>
   </div>
 </section>
 
 <section class="section">
-  <h2>Contact & Links</h2>
-  <div class="card" style="text-align: center;">
-    <p>Email: <strong>abrahamwgs2018@gmail.com</strong> </p>
-    <p>Credly Profile: <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="badge-link">Verify Badges</a> </p>
+  <h2>Verified Expertise</h2>
+  
+  <div class="card">
+    <h3>AI & Agentic Systems</h3>
+    <p><strong>Certifications:</strong> AI Agents with LangGraph, Task Decomposition, and Engineer Model Interaction.</p>
+    <p>Expertise in ReAct patterns and multi-agent architecture design.</p>
+  </div>
+
+  <div class="card">
+    <h3>Data & Vector Search</h3>
+    <p><strong>Certifications:</strong> MongoDB Vector Search Fundamentals and Building AI Agents with MongoDB.</p>
+    <p>Validated skills in CRUD operations and high-performance query optimization.</p>
+  </div>
+
+  <div class="card">
+    <h3>Web & Mobile Engineering</h3>
+    <p><strong>Frameworks:</strong> React, Vue.js, and Python Essentials (Cisco).</p>
+    <p>Advanced development using Cursor AI for efficient app deployment.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card credly-box">
+    <h3>Official Verification</h3>
+    <p>All credentials issued by <strong>O'Reilly Media, MongoDB, and Cisco</strong> are verified via Pearson Credly[cite: 1].</p>
+    <p>Email: <strong>abrahamwgs2018@gmail.com</strong></p>
   </div>
 </section>
 
 <footer>
   <p>© 2026 Abraham Worku | Full-Stack AI Developer</p>
+  <p><small>Updated May 6, 2026</small></p>
 </footer>
 
 </body>
