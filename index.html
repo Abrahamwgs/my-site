@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abraham Worku | Full-Stack AI Developer</title>
   
-  <!-- Modern Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #38bdf8;
-      --secondary: #818cf8;
       --bg: #020617;
       --card-bg: rgba(30, 41, 59, 0.4);
       --text: #f8fafc;
@@ -52,10 +50,22 @@
 
     .logo {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: var(--primary);
       text-decoration: none;
+      letter-spacing: 1px;
     }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
 
     .hero {
       height: 100vh;
@@ -74,32 +84,30 @@
       letter-spacing: -2px;
     }
 
-    .typing-text {
-      color: var(--primary);
-      min-width: 200px;
-    }
+    .typing-text { color: var(--primary); }
 
     .hero p {
       max-width: 600px;
       margin: 25px auto;
       color: #94a3b8;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
-    .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+    .btn-group { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
 
     .btn {
-      padding: 12px 30px;
+      padding: 12px 28px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
+      font-size: 0.9rem;
     }
 
     .btn-primary { background: var(--primary); color: #000; }
     .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
 
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(56, 189, 248, 0.2); }
 
     .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
 
@@ -118,26 +126,18 @@
       transition: 0.4s;
     }
 
-    .card:hover {
-      border-color: var(--primary);
-      background: rgba(30, 41, 59, 0.6);
-      transform: scale(1.03);
-    }
-
-    .card h3 { color: var(--primary); margin-top: 0; }
+    .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .card h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
 
     footer {
       text-align: center;
-      padding: 50px;
+      padding: 60px 20px;
       border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.9rem;
       color: #64748b;
     }
 
-    /* Scroll animations */
-    .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease; }
     .reveal.active { opacity: 1; transform: translateY(0); }
-
   </style>
 </head>
 
@@ -146,42 +146,47 @@
 <canvas id="bg-canvas"></canvas>
 
 <header>
-  <a href="#" class="logo">ABRAHAM.AI</a>
-  <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline" style="padding: 8px 15px; font-size: 0.8rem;"> Verified Credly</a>
+  <a href="#" class="logo">ABRAHAM WORKU</a>
+  <nav class="nav-links">
+    <a href="https://github.com/abrahamwgs" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/abraham-worku" target="_blank">LinkedIn</a>
+  </nav>
 </header>
 
 <section class="hero">
   <h2>I am a <br><span class="typing-text" id="typewriter"></span></h2>
   <p>
-    Specialized in building AI agents, vector search systems, and high-performance web applications using MongoDB and React.
+    Web Developer & AI Engineer specializing in Agentic Workflows, 
+    Vector Search, and modern Full-Stack architectures.
   </p>
   <div class="btn-group">
     <a href="https://github.com/abrahamwgs" target="_blank" class="btn btn-primary">GitHub</a>
-    <a href="mailto:abrahamwgs2018@gmail.com" class="btn btn-outline">Contact Me[cite: 1]</a>
+    <a href="https://www.linkedin.com/in/abraham-worku" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline">Verified Credentials</a>
   </div>
 </section>
 
 <section class="section reveal">
-  <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Core Expertise[cite: 1]</h2>
+  <h2 style="font-size: 2.2rem; margin-bottom: 40px; text-align: center;">Technical Expertise</h2>
   <div class="grid">
     <div class="card">
       <h3>AI Agents & LLMs</h3>
-      <p>Building multi-agent architectures with LangGraph, focusing on task decomposition and long-term memory.</p>
+      <p>Building sophisticated multi-agent architectures using LangGraph, with a focus on task decomposition and autonomous reasoning engines.</p>
     </div>
     <div class="card">
-      <h3>Vector Databases</h3>
-      <p>Implementing RAG systems and semantic search using MongoDB Atlas Vector Search fundamentals.</p>
+      <h3>Intelligent Data</h3>
+      <p>Expertise in MongoDB Atlas Vector Search and RAG (Retrieval-Augmented Generation) to power context-aware AI applications.</p>
     </div>
     <div class="card">
-      <h3>Full-Stack Web</h3>
-      <p>Modern frontend engineering with React and Vue.js, backed by Python and Node.js server logic.</p>
+      <h3>Web Ecosystem</h3>
+      <p>Developing responsive, high-performance interfaces with React and Vue.js, integrated with Python and Node.js backends.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Abraham Worku Gebreselassie | AI-Powered Web Developer[cite: 1]</p>
-  <p>Last Transcript Verification: May 6, 2026[cite: 1]</p>
+  <p>© 2026 Abraham Worku Gebreselassie | AI-Powered Web Developer</p>
+  <p style="font-size: 0.8rem; margin-top: 10px;">Credentials verified via Pearson Credly • May 2026</p>
 </footer>
 
 <script>
@@ -192,11 +197,11 @@
   function init() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    dots = Array.from({length: 80}, () => ({
+    dots = Array.from({length: 70}, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4
     }));
   }
   function draw() {
@@ -206,7 +211,7 @@
       d.x += d.vx; d.y += d.vy;
       if(d.x < 0 || d.x > canvas.width) d.vx *= -1;
       if(d.y < 0 || d.y > canvas.height) d.vy *= -1;
-      ctx.beginPath(); ctx.arc(d.x, d.y, 1.5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(d.x, d.y, 1.2, 0, Math.PI*2); ctx.fill();
     });
     requestAnimationFrame(draw);
   }
@@ -222,14 +227,14 @@
     if (!isDeleting && j < current.length) j++;
     else if (isDeleting && j > 0) j--;
     else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length; }
-    setTimeout(type, isDeleting ? 100 : 200);
+    setTimeout(type, isDeleting ? 80 : 150);
   }
   type();
 
   // Scroll Reveal
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.reveal').forEach(el => {
-      if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+      if(el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('active');
     });
   });
 </script>
