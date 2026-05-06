@@ -3,226 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abraham Worku | AI-Powered Web Developer</title>
+  <title>Abraham Worku | Full-Stack AI Developer</title>
+  
+  <!-- Modern Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #38bdf8;
+      --secondary: #818cf8;
       --bg: #020617;
-      --card-bg: #1e293b;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --text: #f8fafc;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Keyframe Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes glow {
-      0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
-      50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
-      100% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      opacity: 0.3;
     }
 
     header {
-      padding: 20px 50px;
-      animation: fadeInUp 0.8s ease-out;
+      padding: 20px 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    header h1 {
-      color: var(--primary);
-      margin: 0;
+    .logo {
       font-weight: 800;
-      letter-spacing: -1px;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-decoration: none;
     }
 
     .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 120px 20px 80px;
-      animation: fadeInUp 1s ease-out;
+      padding: 0 20px;
     }
 
     .hero h2 {
-      font-size: clamp(32px, 5vw, 52px);
-      margin-bottom: 15px;
+      font-size: clamp(40px, 8vw, 80px);
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -2px;
     }
 
-    .hero span {
+    .typing-text {
       color: var(--primary);
-      position: relative;
+      min-width: 200px;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 600px;
       margin: 25px auto;
       color: #94a3b8;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1.2rem;
     }
+
+    .btn-group { display: flex; gap: 15px; margin-top: 30px; }
 
     .btn {
-      padding: 14px 28px;
-      background: var(--primary);
-      color: #000;
-      text-decoration: none;
+      padding: 12px 30px;
       border-radius: 8px;
-      font-weight: bold;
-      margin: 8px;
-      display: inline-block;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: glow 3s infinite;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    .btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      background: #7dd3fc;
-    }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
 
-    .section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
 
-    .section h2 {
-      margin-bottom: 40px;
-      font-size: 2rem;
-      position: relative;
-      display: inline-block;
-    }
+    .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
 
-    .section h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background: var(--primary);
-      bottom: -10px;
-      left: 25%;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
 
     .card {
       background: var(--card-bg);
-      padding: 30px;
-      margin: 20px auto;
-      border-radius: 16px;
-      text-align: left;
-      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.05);
-      animation: fadeInUp 1s both;
+      transition: 0.4s;
     }
 
     .card:hover {
-      transform: translateX(10px);
-      background: #273549;
       border-color: var(--primary);
+      background: rgba(30, 41, 59, 0.6);
+      transform: scale(1.03);
     }
 
-    .card h3 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.4rem;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
-
-    /* Staggered animation delays */
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-    .card:nth-child(4) { animation-delay: 0.8s; }
+    .card h3 { color: var(--primary); margin-top: 0; }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
+      padding: 50px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9rem;
       color: #64748b;
-      border-top: 1px solid #1e293b;
-      margin-top: 50px;
     }
 
-    .credly-box {
-      text-align: center;
-      background: linear-gradient(to right, #1e293b, #0f172a);
-    }
+    /* Scroll animations */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
   </style>
 </head>
 
 <body>
 
+<canvas id="bg-canvas"></canvas>
+
 <header>
-  <h1>Abraham Worku</h1>
+  <a href="#" class="logo">ABRAHAM.AI</a>
+  <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline" style="padding: 8px 15px; font-size: 0.8rem;"> Verified Credly</a>
 </header>
 
 <section class="hero">
-  <h2>Building the <span>Future of AI</span></h2>
+  <h2>I am a <br><span class="typing-text" id="typewriter"></span></h2>
   <p>
-    Specialized in AI Agents, Vector Search, and Modern Web Architectures. 
-    Transforming complex data into intelligent, user-centric applications.
+    Specialized in building AI agents, vector search systems, and high-performance web applications using MongoDB and React.
   </p>
-
-  <a href="https://github.com/abrahamwgs" target="_blank" class="btn">GitHub</a>
-  <a href="https://www.linkedin.com/in/abraham-worku" target="_blank" class="btn">LinkedIn</a>
-  <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn" style="background: #fff;">Verify Badges</a>
-</section>
-
-<section class="section">
-  <h2>Core Intelligence Projects</h2>
-  <div class="card">
-    <h3>Simple Chat & Meme Ecosystem</h3>
-    <p>Engineered Android applications featuring real-time data transmission via PHP and custom content generation tools.</p>
-  </div>
-  <div class="card">
-    <h3>AI Agent Implementations</h3>
-    <p>Leveraging LangGraph and MongoDB to build multi-agent systems with long-term memory and task decomposition.</p>
+  <div class="btn-group">
+    <a href="https://github.com/abrahamwgs" target="_blank" class="btn btn-primary">GitHub</a>
+    <a href="mailto:abrahamwgs2018@gmail.com" class="btn btn-outline">Contact Me[cite: 1]</a>
   </div>
 </section>
 
-<section class="section">
-  <h2>Verified Expertise</h2>
-  
-  <div class="card">
-    <h3>AI & Agentic Systems</h3>
-    <p><strong>Certifications:</strong> AI Agents with LangGraph, Task Decomposition, and Engineer Model Interaction.</p>
-    <p>Expertise in ReAct patterns and multi-agent architecture design.</p>
-  </div>
-
-  <div class="card">
-    <h3>Data & Vector Search</h3>
-    <p><strong>Certifications:</strong> MongoDB Vector Search Fundamentals and Building AI Agents with MongoDB.</p>
-    <p>Validated skills in CRUD operations and high-performance query optimization.</p>
-  </div>
-
-  <div class="card">
-    <h3>Web & Mobile Engineering</h3>
-    <p><strong>Frameworks:</strong> React, Vue.js, and Python Essentials (Cisco).</p>
-    <p>Advanced development using Cursor AI for efficient app deployment.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card credly-box">
-    <h3>Official Verification</h3>
-    <p>All credentials issued by <strong>O'Reilly Media, MongoDB, and Cisco</strong> are verified via Pearson Credly[cite: 1].</p>
-    <p>Email: <strong>abrahamwgs2018@gmail.com</strong></p>
+<section class="section reveal">
+  <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Core Expertise[cite: 1]</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AI Agents & LLMs</h3>
+      <p>Building multi-agent architectures with LangGraph, focusing on task decomposition and long-term memory.</p>
+    </div>
+    <div class="card">
+      <h3>Vector Databases</h3>
+      <p>Implementing RAG systems and semantic search using MongoDB Atlas Vector Search fundamentals.</p>
+    </div>
+    <div class="card">
+      <h3>Full-Stack Web</h3>
+      <p>Modern frontend engineering with React and Vue.js, backed by Python and Node.js server logic.</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Abraham Worku | Full-Stack AI Developer</p>
-  <p><small>Updated May 6, 2026</small></p>
+  <p>© 2026 Abraham Worku Gebreselassie | AI-Powered Web Developer[cite: 1]</p>
+  <p>Last Transcript Verification: May 6, 2026[cite: 1]</p>
 </footer>
+
+<script>
+  // Background Particles
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let dots = [];
+  function init() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    dots = Array.from({length: 80}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+    ctx.fillStyle = '#38bdf8';
+    dots.forEach(d => {
+      d.x += d.vx; d.y += d.vy;
+      if(d.x < 0 || d.x > canvas.width) d.vx *= -1;
+      if(d.y < 0 || d.y > canvas.height) d.vy *= -1;
+      ctx.beginPath(); ctx.arc(d.x, d.y, 1.5, 0, Math.PI*2); ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.onresize = init;
+  init(); draw();
+
+  // Typewriter
+  const words = ["Web Developer", "AI Engineer", "IT Student", "Vibe Coder"];
+  let i = 0, j = 0, isDeleting = false;
+  function type() {
+    const current = words[i];
+    document.getElementById('typewriter').textContent = current.substring(0, j);
+    if (!isDeleting && j < current.length) j++;
+    else if (isDeleting && j > 0) j--;
+    else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length; }
+    setTimeout(type, isDeleting ? 100 : 200);
+  }
+  type();
+
+  // Scroll Reveal
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
