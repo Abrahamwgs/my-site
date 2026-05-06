@@ -132,6 +132,32 @@
     .ai-badge p { margin-bottom: 0; color: var(--text); }
     strong { color: var(--primary); font-weight: 600; }
 
+    .cert-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .cert-tag {
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cert-tag:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: var(--primary);
+      transform: translateX(5px);
+    }
+    .cert-tag::before { content: '✓'; color: var(--primary); font-weight: bold; }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -183,7 +209,7 @@
   <div class="btn-group">
     <a href="https://github.com/abrahamwgs" target="_blank" class="btn btn-primary">GitHub</a>
     <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" class="btn btn-outline">LinkedIn</a>
-    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline">Verified Credentials</a>
+    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline">Credly Profile</a>
   </div>
 </section>
 
@@ -192,25 +218,27 @@
     <h2 style="color: var(--primary); margin-bottom: 25px;">Professional Profile</h2>
     <div class="about-content">
       <p>
-        I’m a <strong>Full-Stack Web Developer</strong> passionate about building clean, responsive, and user-focused applications from front to back. 
+        I’m a <strong>Full-Stack Web Developer</strong> passionate about building clean, responsive, and user-focused applications from front to back[cite: 1]. 
         With hands-on experience in <strong>HTML, CSS, and JavaScript</strong>, I specialize in turning complex ideas into practical, 
-        functional digital solutions that work seamlessly across the entire stack.
+        functional digital solutions that work seamlessly across the entire stack[cite: 1].
       </p>
-      <p>
-        As a freelancer, I’ve collaborated with diverse clients to design and develop websites that balance visual appeal with technical 
-        stability. My focus remains on writing <strong>maintainable code</strong>, optimizing user experience, and delivering 
-        high-quality, scalable projects on time.
-      </p>
+      
       <div class="ai-badge">
         <p>
           🚀 <strong>The AI Edge:</strong> I leverage modern AI tools and <strong>prompt engineering</strong> techniques to accelerate 
-          full-stack development, debug efficiently, and explore optimized architectural solutions in a fast-changing landscape.
+          full-stack development, debug efficiently, and explore optimized architectural solutions[cite: 1].
         </p>
       </div>
-      <p>
-        I am continuously evolving my skills with a focus on <strong>advanced, scalable applications</strong> and am currently open to 
-        freelance opportunities, collaborations, and developer roles where I can contribute and grow.
-      </p>
+
+      <div style="margin-top: 40px;">
+        <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--primary); letter-spacing: 0.5px;">Verified Udacity Credentials</h4>
+        <div class="cert-links">
+          <a href="https://www.udacity.com/certificate/e/1102532e-2cdd-11f1-b9b0-c77bbe099b72" target="_blank" class="cert-tag">AWS AI Practitioner Challenge</a>
+          <a href="https://www.udacity.com/certificate/e/ebb202fa-f7cf-11f0-8d47-9b7370ddc26e" target="_blank" class="cert-tag">Android Developer Fundamentals</a>
+          <a href="https://www.udacity.com/certificate/e/287117d8-1d43-11f1-9201-e3820e0bac85" target="_blank" class="cert-tag">Artificial Intelligence Fundamentals</a>
+          <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" class="cert-tag">Global Chapters - Ethiopia - AI Fundamentals</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -228,14 +256,14 @@
     </div>
     <div class="card">
       <h3>Modern Ecosystem</h3>
-      <p>Developing responsive, high-performance interfaces with React and Vue.js, integrated with Python and Node.js backends.</p>
+      <p>Developing responsive, high-performance interfaces with React and Vue.js, integrated with Python and Node.js backends[cite: 1].</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Abraham Worku Gebreselassie | Full-Stack AI Developer</p>
-  <p style="font-size: 0.8rem; margin-top: 10px;">Credentials verified via Pearson Credly • May 2026</p>
+  <p>© 2026 Abraham Worku Gebreselassie | Full-Stack AI Developer[cite: 1]</p>
+  <p style="font-size: 0.8rem; margin-top: 10px;">Verified Credentials via Udacity & Pearson Credly • May 2026[cite: 1]</p>
 </footer>
 
 <script>
