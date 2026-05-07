@@ -7,6 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
@@ -36,7 +37,7 @@
     }
 
     header {
-      padding: 20px 5%;
+      padding: 15px 5%;
       position: fixed;
       width: 100%;
       top: 0;
@@ -57,16 +58,39 @@
       text-transform: uppercase;
     }
 
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a i {
+      font-size: 1.1rem;
+    }
+
+    .nav-links a:hover { 
+      color: var(--primary); 
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* Upwork Specific Icon Color Fix */
+    .fa-upwork { color: #14a800; }
 
     .hero {
       height: 100vh;
@@ -203,9 +227,15 @@
 <header>
   <a href="#" class="logo">ABRAHAM WORKU</a>
   <nav class="nav-links">
-    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank">Upwork</a>
-    <a href="https://github.com/abrahamwgs" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank">LinkedIn</a>
+    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank">
+      <i class="fa-brands fa-upwork"></i> Upwork
+    </a>
+    <a href="https://github.com/abrahamwgs" target="_blank">
+      <i class="fa-brands fa-github"></i> GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
   </nav>
 </header>
 
@@ -250,8 +280,7 @@
         </h3>
         <p style="color: #cbd5e1; margin-bottom: 20px;">
           Developed a custom, high-performance <strong>School Registration System</strong> for Habiye Academy. 
-          The project focused on streamlining the enrollment process with a clean, user-friendly interface 
-          integrated into their core institutional web presence.
+          The project focused on streamlining the enrollment process with a clean, user-friendly interface.
         </p>
         <a href="https://habiyeacademy.com/index.php" target="_blank" class="btn btn-outline" style="display: inline-block;">View Live Site</a>
       </div>
@@ -260,7 +289,6 @@
         <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--primary); letter-spacing: 0.5px;">Verified Credentials</h4>
         <div class="cert-links">
           <a href="https://www.udemy.com/certificate/UC-fd4b8e32-d8f8-494f-95d3-39772590cfa6/" target="_blank" class="cert-tag">Machine Learning for Beginners - Udemy</a>
-          
           <a href="https://www.udemy.com/certificate/UC-d691b97d-c77d-45cb-b168-01ef05c0b412/" target="_blank" class="cert-tag">Mastering HTML5 - Udemy</a>
           <a href="https://www.udemy.com/certificate/UC-d875da77-e323-4349-bfd9-789cc5213061/" target="_blank" class="cert-tag">Hands-On ChatGPT AI - Udemy</a>
           <a href="https://www.udemy.com/certificate/UC-bc13d987-98e4-449d-b850-6e45fb7de1ff/" target="_blank" class="cert-tag">Prompt Engineering - Udemy</a>
@@ -270,24 +298,6 @@
           <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" class="cert-tag">AI Fundamentals - Udacity</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section reveal">
-  <h2 style="font-size: 2.2rem; margin-bottom: 40px; text-align: center;">Technical Expertise</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>AI Agents & LLMs</h3>
-      <p>Building sophisticated multi-agent architectures using LangGraph, with a focus on task decomposition and autonomous reasoning engines.</p>
-    </div>
-    <div class="card">
-      <h3>Intelligent Data</h3>
-      <p>Expertise in MongoDB Atlas Vector Search and RAG (Retrieval-Augmented Generation) to power context-aware AI applications.</p>
-    </div>
-    <div class="card">
-      <h3>Modern Ecosystem</h3>
-      <p>Developing responsive, high-performance interfaces with React and Vue.js, integrated with Python and Node.js backends.</p>
     </div>
   </div>
 </section>
