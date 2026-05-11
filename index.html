@@ -3,29 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Full-Stack Web Developer | AI-Powered Apps</title>
+  <title>Full-Stack Web Developer</title>
+  <meta name="description" content="Abraham Worku — full-stack web developer and AI-focused freelancer. Agentic workflows, vector search, and modern web apps. Available on Upwork." />
+  <meta name="theme-color" content="#020617" />
+  <meta property="og:title" content="Full-Stack Web Developer | AI-Powered Apps" />
+  <meta property="og:description" content="Abraham Worku builds intelligent full-stack software — agentic workflows, vector search, and clean web experiences. Hire on Upwork." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Full-Stack Web Developer | AI-Powered Apps" />
+  <meta name="twitter:description" content="Full-stack developer specializing in AI-powered apps and modern architectures." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23020617'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='system-ui,sans-serif' font-size='12' font-weight='800' fill='%2338bdf8'%3EAW%3C/text%3E%3C/svg%3E" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --primary: #38bdf8;
+      --primary-dim: rgba(56, 189, 248, 0.14);
       --bg: #020617;
-      --card-bg: rgba(30, 41, 59, 0.4);
+      --bg-elevated: rgba(15, 23, 42, 0.65);
+      --card-bg: rgba(15, 23, 42, 0.55);
       --text: #f8fafc;
+      --muted: #94a3b8;
+      --muted-2: #64748b;
+      --border: rgba(148, 163, 184, 0.12);
+      --border-strong: rgba(148, 163, 184, 0.2);
+      --radius: 14px;
+      --radius-pill: 999px;
+      --header-h: 64px;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background-color: var(--bg);
+      background-image: radial-gradient(ellipse 120% 80% at 50% -30%, rgba(56, 189, 248, 0.08), transparent 55%);
       color: var(--text);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
     #bg-canvas {
@@ -33,11 +56,12 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.22;
     }
 
     header {
-      padding: 15px 5%;
+      padding: 0 clamp(20px, 5vw, 48px);
+      min-height: var(--header-h);
       position: fixed;
       width: 100%;
       top: 0;
@@ -45,150 +69,283 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 16px;
+      flex-wrap: wrap;
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo {
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--primary);
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -120px;
+      z-index: 200;
+      padding: 12px 18px;
+      background: var(--primary);
+      color: #020617;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 8px;
       text-decoration: none;
-      letter-spacing: 1px;
+    }
+    .skip-link:focus-visible { top: 16px; outline: 2px solid #f8fafc; outline-offset: 3px; }
+
+    .logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+    .logo:hover { color: var(--primary); }
+    .logo:focus-visible,
+    .nav-links a:focus-visible,
+    .btn:focus-visible,
+    .cert-tag:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
     }
 
     .nav-links {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+    }
+
+    .nav-links a.nav-onpage {
+      background: var(--primary-dim);
+      color: var(--primary);
+    }
+    .nav-links a.nav-onpage:hover {
+      background: rgba(56, 189, 248, 0.22);
+      color: #7dd3fc;
     }
 
     .nav-links a {
-      color: var(--text);
+      color: var(--muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.8125rem;
       font-weight: 500;
-      transition: 0.3s;
+      transition: color 0.2s ease, background 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       padding: 8px 14px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
     }
 
     .nav-links a i {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      opacity: 0.9;
     }
 
-    .nav-links a:hover { 
-      color: var(--primary); 
-      border-color: var(--primary);
-      background: rgba(56, 189, 248, 0.05);
-      transform: translateY(-2px);
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     /* Upwork Specific Icon Color Fix */
     .fa-upwork { color: #14a800; }
 
     .hero {
-      height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
+      padding: calc(var(--header-h) + 32px) clamp(20px, 5vw, 48px) 48px;
     }
 
-    .hero h2 {
-      font-size: clamp(40px, 8vw, 80px);
+    .hero h1 {
+      font-size: clamp(2rem, 6.5vw, 3.75rem);
       margin: 0;
-      font-weight: 800;
-      letter-spacing: -2px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
     }
 
-    .typing-text { color: var(--primary); }
+    .hero h1 .hero-line-muted {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .typing-line {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      min-width: 0;
+    }
+    .typing-text { color: var(--primary); font-weight: 700; }
 
     .hero p {
-      max-width: 600px;
-      margin: 25px auto;
-      color: #94a3b8;
-      font-size: 1.1rem;
+      max-width: 36rem;
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      font-size: clamp(0.95rem, 2vw, 1.0625rem);
+      font-weight: 400;
+      line-height: 1.7;
     }
 
-    .btn-group { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
-
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-group .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4em;
+    }
     .btn {
-      padding: 12px 28px;
-      border-radius: 8px;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-pill);
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-primary { background: var(--primary); color: #000; }
-    .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+    .btn-primary {
+      background: var(--primary);
+      color: #0f172a;
+      border: 1px solid transparent;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .btn-primary:hover {
+      background: #7dd3fc;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+    }
 
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(56, 189, 248, 0.2); }
+    .btn-outline {
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .btn-outline:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+      color: var(--primary);
+      background: var(--primary-dim);
+    }
 
-    .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+    .btn:hover { transform: none; }
+
+    .section { padding: clamp(64px, 10vw, 100px) clamp(20px, 5vw, 48px); max-width: 920px; margin: 0 auto; }
+    #about { scroll-margin-top: calc(var(--header-h) + 12px); }
 
     .about-container {
       text-align: left;
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
+    }
+    .section-title {
+      color: var(--text);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.5rem;
+    }
+    .section-title span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
     }
     .about-content p {
       color: #cbd5e1;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+      font-size: 1.025rem;
+      margin: 0 0 1.25rem;
+      line-height: 1.75;
     }
     .ai-badge {
-      background: rgba(56, 189, 248, 0.1);
-      border-left: 4px solid var(--primary);
-      padding: 20px 25px;
-      margin: 30px 0;
-      border-radius: 4px 12px 12px 4px;
+      background: var(--primary-dim);
+      border: 1px solid var(--border-strong);
+      padding: 1.25rem 1.35rem;
+      margin: 1.75rem 0;
+      border-radius: var(--radius);
     }
-    .ai-badge p { margin-bottom: 0; color: var(--text); }
+    .ai-badge p { margin: 0; color: #e2e8f0; font-size: 0.98rem; line-height: 1.65; }
     strong { color: var(--primary); font-weight: 600; }
 
     .project-card {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(30, 41, 59, 0.4) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 40px;
-      border-radius: 20px;
-      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.5rem 1.6rem;
+      border-radius: var(--radius);
+      margin-top: 1.75rem;
+    }
+    .project-kicker {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 0.35rem;
+    }
+    .project-title {
+      color: var(--text);
+      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .project-desc {
+      color: #cbd5e1;
+      margin: 0 0 1.25rem;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .btn-inline { display: inline-block; }
+
+    .credentials-block { margin-top: 2.5rem; }
+    .subsection-title {
+      margin: 0 0 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
     }
 
     .cert-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 15px;
+      gap: 8px;
+      margin-top: 0;
     }
     .cert-tag {
-      font-size: 0.85rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 8px 16px;
-      border-radius: 8px;
-      color: var(--text);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-pill);
+      color: #cbd5e1;
       text-decoration: none;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
     }
     .cert-tag:hover {
-      background: rgba(56, 189, 248, 0.1);
-      border-color: var(--primary);
-      transform: translateX(5px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: var(--text);
     }
-    .cert-tag::before { content: '✓'; color: var(--primary); font-weight: bold; }
 
     .grid {
       display: grid;
@@ -198,63 +355,104 @@
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.4s;
+      backdrop-filter: blur(20px) saturate(1.1);
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s ease;
     }
 
-    .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .card:hover { border-color: var(--border-strong); transform: none; }
     .card h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      color: #64748b;
+      padding: 3rem clamp(20px, 5vw, 48px) 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted-2);
+      font-size: 0.875rem;
+    }
+    footer p { margin: 0; }
+    .footer-note {
+      font-size: 0.75rem;
+      margin-top: 0.65rem !important;
+      color: var(--muted-2);
+      opacity: 0.85;
     }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s all ease; }
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      #bg-canvas { display: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .nav-links a:hover,
+      .btn:hover,
+      .cert-tag:hover,
+      .card:hover { transform: none; }
+    }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abraham Worku Gebreselassie",
+    "alternateName": "Abraham Worku",
+    "jobTitle": "Full-Stack Web Developer",
+    "url": "https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3",
+    "sameAs": [
+      "https://github.com/abrahamwgs",
+      "https://www.linkedin.com/in/abraham-worku-286339231",
+      "https://www.credly.com/users/abraham-worku.1b641880"
+    ],
+    "knowsAbout": ["Web development", "Artificial intelligence", "Full-stack engineering"]
+  }
+  </script>
 </head>
 
-<body>
+<body id="top">
 
-<canvas id="bg-canvas"></canvas>
+<a class="skip-link" href="#about">Skip to content</a>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <header>
-  <a href="#" class="logo">ABRAHAM WORKU</a>
-  <nav class="nav-links">
-    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank">
-      <i class="fa-brands fa-upwork"></i> Upwork
+  <a href="#top" class="logo">ABRAHAM WORKU</a>
+  <nav class="nav-links" aria-label="Site and social links">
+    <a href="#about" class="nav-onpage">
+      <i class="fa-solid fa-id-card" aria-hidden="true"></i> Profile
     </a>
-    <a href="https://github.com/abrahamwgs" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
+    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-upwork" aria-hidden="true"></i> Upwork
     </a>
-    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
     </a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>I am a <br><span class="typing-text" id="typewriter"></span></h2>
+<main>
+<section class="hero" aria-labelledby="hero-heading">
+  <h1 id="hero-heading"><span class="hero-line-muted">I am a</span><br><span class="typing-line" id="typing-line"><span class="typing-text" id="typewriter"></span></span></h1>
   <p>
     Specializing in Agentic Workflows, Vector Search, and modern application architectures 
     to build the next generation of intelligent software.
   </p>
   <div class="btn-group">
-    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" class="btn btn-primary">Hire on Upwork</a>
-    <a href="https://github.com/abrahamwgs" target="_blank" class="btn btn-outline">GitHub</a>
-    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" class="btn btn-outline">Credly Profile</a>
+    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Hire on Upwork</a>
+    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+    <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
+    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Credly Profile</a>
   </div>
 </section>
 
-<section class="section reveal" id="about">
+<section class="section reveal" id="about" aria-labelledby="profile-heading">
   <div class="card about-container">
-    <h2 style="color: var(--primary); margin-bottom: 25px;">Professional Profile</h2>
+    <h2 id="profile-heading" class="section-title"><span>About</span>Professional profile</h2>
     <div class="about-content">
       <p>
         I’m a <strong>Full-Stack Web Developer</strong> passionate about building clean, responsive, and user-focused applications from front to back. 
@@ -269,45 +467,45 @@
 
       <div class="ai-badge">
         <p>
-          🚀 <strong>The AI Edge:</strong> I leverage modern AI tools and <strong>prompt engineering</strong> techniques to accelerate 
-          full-stack development, debug efficiently, and explore optimized architectural solutions.
+          <strong>The AI edge.</strong> I leverage modern AI tools and <strong>prompt engineering</strong> to accelerate
+          full-stack development, debug efficiently, and explore clear architectural options.
         </p>
       </div>
 
       <div class="project-card">
-        <h3 style="color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px;">
-          ⭐ Recent Achievement: Habiye Academy
-        </h3>
-        <p style="color: #cbd5e1; margin-bottom: 20px;">
-          Developed a custom, high-performance <strong>School Registration System</strong> for Habiye Academy. 
-          The project focused on streamlining the enrollment process with a clean, user-friendly interface.
+        <span class="project-kicker">Featured work</span>
+        <h3 class="project-title">Habiye Academy</h3>
+        <p class="project-desc">
+          Custom <strong>school registration system</strong> with a streamlined enrollment flow and a focused, easy-to-use interface.
         </p>
-        <a href="https://habiyeacademy.com/index.php" target="_blank" class="btn btn-outline" style="display: inline-block;">View Live Site</a>
+        <a href="https://habiyeacademy.com/index.php" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-inline">View live site</a>
       </div>
 
-      <div style="margin-top: 40px;">
-        <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--primary); letter-spacing: 0.5px;">Verified Credentials</h4>
+      <div class="credentials-block">
+        <h4 class="subsection-title">Verified credentials</h4>
         <div class="cert-links">
-          <a href="https://www.udemy.com/certificate/UC-fd4b8e32-d8f8-494f-95d3-39772590cfa6/" target="_blank" class="cert-tag">Machine Learning for Beginners - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-d691b97d-c77d-45cb-b168-01ef05c0b412/" target="_blank" class="cert-tag">Mastering HTML5 - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-d875da77-e323-4349-bfd9-789cc5213061/" target="_blank" class="cert-tag">Hands-On ChatGPT AI - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-bc13d987-98e4-449d-b850-6e45fb7de1ff/" target="_blank" class="cert-tag">Prompt Engineering - Udemy</a>
-          <a href="https://www.life-global.org/certificate/8a4c5444-2c03-496a-bdfa-c7fb08f4c1f2" target="_blank" class="cert-tag">AI for Beginners - HP LIFE</a>
-          <a href="https://www.udacity.com/certificate/e/1102532e-2cdd-11f1-b9b0-c77bbe099b72" target="_blank" class="cert-tag">AWS AI Practitioner Challenge</a>
-          <a href="https://www.udacity.com/certificate/e/ebb202fa-f7cf-11f0-8d47-9b7370ddc26e" target="_blank" class="cert-tag">Android Developer Fundamentals</a>
-          <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" class="cert-tag">AI Fundamentals - Udacity</a>
+          <a href="https://www.udemy.com/certificate/UC-fd4b8e32-d8f8-494f-95d3-39772590cfa6/" target="_blank" rel="noopener noreferrer" class="cert-tag">Machine Learning for Beginners - Udemy</a>
+          <a href="https://www.udemy.com/certificate/UC-d691b97d-c77d-45cb-b168-01ef05c0b412/" target="_blank" rel="noopener noreferrer" class="cert-tag">Mastering HTML5 - Udemy</a>
+          <a href="https://www.udemy.com/certificate/UC-d875da77-e323-4349-bfd9-789cc5213061/" target="_blank" rel="noopener noreferrer" class="cert-tag">Hands-On ChatGPT AI - Udemy</a>
+          <a href="https://www.udemy.com/certificate/UC-bc13d987-98e4-449d-b850-6e45fb7de1ff/" target="_blank" rel="noopener noreferrer" class="cert-tag">Prompt Engineering - Udemy</a>
+          <a href="https://www.life-global.org/certificate/8a4c5444-2c03-496a-bdfa-c7fb08f4c1f2" target="_blank" rel="noopener noreferrer" class="cert-tag">AI for Beginners - HP LIFE</a>
+          <a href="https://www.udacity.com/certificate/e/1102532e-2cdd-11f1-b9b0-c77bbe099b72" target="_blank" rel="noopener noreferrer" class="cert-tag">AWS AI Practitioner Challenge</a>
+          <a href="https://www.udacity.com/certificate/e/ebb202fa-f7cf-11f0-8d47-9b7370ddc26e" target="_blank" rel="noopener noreferrer" class="cert-tag">Android Developer Fundamentals</a>
+          <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" rel="noopener noreferrer" class="cert-tag">AI Fundamentals - Udacity</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
-  <p>© 2026 Abraham Worku Gebreselassie | Full-Stack AI Developer</p>
-  <p style="font-size: 0.8rem; margin-top: 10px;">Verified Credentials via Udemy, HP LIFE, Udacity & Pearson Credly • May 2026</p>
+  <p>© 2026 Abraham Worku Gebreselassie · Full-stack AI developer</p>
+  <p class="footer-note">Credentials issued via Udemy, HP LIFE, Udacity, and Credly · Updated May 2026</p>
 </footer>
 
 <script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
   let dots = [];
@@ -332,26 +530,79 @@
     });
     requestAnimationFrame(draw);
   }
-  window.onresize = init;
-  init(); draw();
+  if (!prefersReducedMotion) {
+    window.onresize = init;
+    init();
+    draw();
+  }
 
   const words = ["Web Developer", "AI Engineer", "Freelancer"];
+  const typeEl = document.getElementById('typewriter');
+  const typingLine = document.getElementById('typing-line');
+  const heroHeading = document.getElementById('hero-heading');
+
+  function updateTypingLineWidth() {
+    if (!typingLine || !heroHeading) return;
+    const probe = document.createElement('span');
+    probe.setAttribute('aria-hidden', 'true');
+    probe.className = 'typing-text';
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;top:0;left:0;';
+    const cs = getComputedStyle(heroHeading);
+    probe.style.font = cs.font;
+    probe.style.letterSpacing = cs.letterSpacing;
+    document.body.appendChild(probe);
+    const candidates = prefersReducedMotion ? [words.join(' · '), ...words] : words.slice();
+    let max = 0;
+    candidates.forEach((s) => {
+      probe.textContent = s;
+      max = Math.max(max, probe.offsetWidth);
+    });
+    document.body.removeChild(probe);
+    typingLine.style.minWidth = `${Math.ceil(max)}px`;
+  }
+
+  let resizeDebounce;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeDebounce);
+    resizeDebounce = setTimeout(updateTypingLineWidth, 80);
+  });
+
   let i = 0, j = 0, isDeleting = false;
   function type() {
     const current = words[i];
-    document.getElementById('typewriter').textContent = current.substring(0, j);
+    typeEl.textContent = current.substring(0, j);
     if (!isDeleting && j < current.length) j++;
     else if (isDeleting && j > 0) j--;
     else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length; }
     setTimeout(type, isDeleting ? 80 : 150);
   }
-  type();
 
-  window.addEventListener('scroll', () => {
+  function startTypewriter() {
+    updateTypingLineWidth();
+    if (prefersReducedMotion) {
+      typeEl.textContent = words.join(' · ');
+    } else {
+      type();
+    }
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(startTypewriter);
+  } else {
+    startTypewriter();
+  }
+
+  function revealOnScroll() {
     document.querySelectorAll('.reveal').forEach(el => {
-      if(el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('active');
+      if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('active');
     });
-  });
+  }
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+  } else {
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  }
 </script>
 
 </body>
