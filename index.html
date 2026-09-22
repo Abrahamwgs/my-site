@@ -3,79 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Full-Stack Web Developer</title>
-  <meta name="description" content="Abraham Worku — full-stack web developer and AI-focused freelancer. Agentic workflows, vector search, and modern web apps. Available on Upwork." />
-  <meta name="theme-color" content="#020617" />
-  <meta property="og:title" content="Full-Stack Web Developer | AI-Powered Apps" />
-  <meta property="og:description" content="Abraham Worku builds intelligent full-stack software — agentic workflows, vector search, and clean web experiences. Hire on Upwork." />
+  <title>Abraham Worku | Front-End Web Developer</title>
+  <meta name="description" content="Abraham Worku — Front-End Web Developer specializing in clean, modern, and high-performance websites. HTML5, CSS3, JavaScript, React, Tailwind CSS, and AI-accelerated workflows. Available on Upwork." />
+  <meta name="theme-color" content="#030712" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Abraham Worku | Front-End Web Developer" />
+  <meta property="og:description" content="Front-End Web Developer specializing in building clean, modern, and high-performance websites with core coding skills and modern AI workflows. Available on Upwork." />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Full-Stack Web Developer | AI-Powered Apps" />
-  <meta name="twitter:description" content="Full-stack developer specializing in AI-powered apps and modern architectures." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23020617'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='system-ui,sans-serif' font-size='12' font-weight='800' fill='%2338bdf8'%3EAW%3C/text%3E%3C/svg%3E" />
+  <meta property="og:url" content="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abraham Worku | Front-End Web Developer" />
+  <meta name="twitter:description" content="Clean, modern, and high-performance websites built with HTML5, CSS3, JavaScript, React, and modern AI acceleration." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23030712'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='system-ui,sans-serif' font-size='13' font-weight='900' fill='%2338bdf8'%3EAW%3C/text%3E%3C/svg%3E" />
   
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
       --primary: #38bdf8;
-      --primary-dim: rgba(56, 189, 248, 0.14);
-      --bg: #020617;
-      --bg-elevated: rgba(15, 23, 42, 0.65);
-      --card-bg: rgba(15, 23, 42, 0.55);
+      --primary-hover: #7dd3fc;
+      --primary-dim: rgba(56, 189, 248, 0.12);
+      --primary-glow: rgba(56, 189, 248, 0.28);
+      --primary-border: rgba(56, 189, 248, 0.24);
+      --accent-indigo: #818cf8;
+      --accent-purple: #c084fc;
+      --upwork: #14a800;
+      --upwork-dim: rgba(20, 168, 0, 0.14);
+      --upwork-glow: rgba(20, 168, 0, 0.35);
+      --upwork-hover: #19be03;
+      --bg: #030712;
+      --bg-surface: #0b0f19;
+      --card-bg: rgba(15, 23, 42, 0.65);
+      --card-bg-hover: rgba(30, 41, 59, 0.75);
       --text: #f8fafc;
+      --text-soft: #cbd5e1;
       --muted: #94a3b8;
       --muted-2: #64748b;
-      --border: rgba(148, 163, 184, 0.12);
-      --border-strong: rgba(148, 163, 184, 0.2);
-      --radius: 14px;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(56, 189, 248, 0.35);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --radius-sm: 8px;
+      --radius: 16px;
+      --radius-lg: 24px;
       --radius-pill: 999px;
-      --header-h: 64px;
+      --header-h: 72px;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 85px;
+    }
 
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
-      background-image: radial-gradient(ellipse 120% 80% at 50% -30%, rgba(56, 189, 248, 0.08), transparent 55%);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.13), transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 35%),
+        radial-gradient(circle at 15% 65%, rgba(20, 168, 0, 0.06), transparent 35%);
       color: var(--text);
       overflow-x: hidden;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Ambient Background Canvas */
     #bg-canvas {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -1;
-      opacity: 0.22;
+      opacity: 0.35;
+      pointer-events: none;
     }
 
-    header {
-      padding: 0 clamp(20px, 5vw, 48px);
-      min-height: var(--header-h);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      background: rgba(2, 6, 23, 0.72);
-      backdrop-filter: blur(16px) saturate(1.2);
-      border-bottom: 1px solid var(--border);
-    }
-
+    /* Skip link */
     .skip-link {
       position: absolute;
       left: 16px;
@@ -83,80 +96,297 @@
       z-index: 200;
       padding: 12px 18px;
       background: var(--primary);
-      color: #020617;
+      color: #030712;
       font-weight: 700;
       font-size: 0.9rem;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       text-decoration: none;
+      transition: top 0.2s ease;
     }
     .skip-link:focus-visible { top: 16px; outline: 2px solid #f8fafc; outline-offset: 3px; }
 
+    /* Header & Modern Floating Pill Navbar (Strict Single Row) */
+    header {
+      padding: 14px clamp(12px, 3vw, 32px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 1240px;
+      height: 54px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      gap: 12px;
+      background: rgba(11, 15, 25, 0.82);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      padding: 0 8px 0 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      position: relative;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #030712;
+      font-weight: 800;
+      font-size: 0.82rem;
+      box-shadow: 0 0 14px var(--primary-glow);
+      flex-shrink: 0;
+    }
+
     .logo {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.95rem;
       color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      transition: color 0.2s ease;
+      white-space: nowrap;
     }
-    .logo:hover { color: var(--primary); }
-    .logo:focus-visible,
-    .nav-links a:focus-visible,
-    .btn:focus-visible,
-    .cert-tag:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
+    .brand-wrap:hover .logo { color: var(--primary); }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      justify-content: flex-end;
+      flex-direction: row;
       align-items: center;
-      padding: 4px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-    }
-
-    .nav-links a.nav-onpage {
-      background: var(--primary-dim);
-      color: var(--primary);
-    }
-    .nav-links a.nav-onpage:hover {
-      background: rgba(56, 189, 248, 0.22);
-      color: #7dd3fc;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      gap: 3px;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.8125rem;
-      font-weight: 500;
-      transition: color 0.2s ease, background 0.2s ease;
-      display: flex;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 8px 14px;
+      gap: 5px;
+      padding: 6px 11px;
       border-radius: var(--radius-pill);
-      border: none;
-      background: transparent;
+      white-space: nowrap;
+      border: 1px solid transparent;
     }
 
     .nav-links a i {
-      font-size: 1rem;
-      opacity: 0.9;
+      font-size: 0.78rem;
+      color: var(--primary);
+      opacity: 0.85;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--text);
       background: rgba(255, 255, 255, 0.06);
     }
+    .nav-links a:hover i {
+      opacity: 1;
+      transform: scale(1.1);
+    }
 
-    /* Upwork Specific Icon Color Fix */
-    .fa-upwork { color: #14a800; }
+    .nav-links a.active {
+      color: #7dd3fc;
+      background: var(--primary-dim);
+      border-color: var(--primary-border);
+    }
+    .nav-links a.active i {
+      opacity: 1;
+      color: #38bdf8;
+    }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-upwork-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, #16a34a, #14a800);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 7px 15px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 2px 14px var(--upwork-glow);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+    .nav-upwork-btn:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 4px 20px rgba(20, 168, 0, 0.55);
+      transform: translateY(-1px);
+      color: #ffffff !important;
+    }
+    .nav-upwork-btn i {
+      font-size: 0.95rem;
+    }
+
+    /* Mobile Nav Toggle Button */
+    .nav-toggle {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .nav-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary-border);
+    }
+    .hamburger-bar {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-toggle.open .hamburger-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav-toggle.open .hamburger-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open .hamburger-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .logo:focus-visible,
+    .nav-links a:focus-visible,
+    .nav-upwork-btn:focus-visible,
+    .nav-toggle:focus-visible,
+    .btn:focus-visible,
+    .cert-tag:focus-visible,
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 2.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55em;
+      padding: 0.78rem 1.6rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-upwork {
+      background: linear-gradient(135deg, #16a34a, #14a800);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px var(--upwork-glow);
+    }
+    .btn-upwork:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 6px 28px rgba(20, 168, 0, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      color: #030712;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 18px var(--primary-glow);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-strong);
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary-border);
+      color: var(--primary);
+      background: var(--primary-dim);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
     .hero {
       min-height: 100dvh;
       display: flex;
@@ -164,18 +394,70 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: calc(var(--header-h) + 32px) clamp(20px, 5vw, 48px) 48px;
+      padding: calc(var(--header-h) + 60px) clamp(20px, 5vw, 48px) 70px;
+      position: relative;
+    }
+
+    .hero-badge-wrap {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(20, 168, 0, 0.08);
+      border: 1px solid rgba(20, 168, 0, 0.35);
+      color: #86efac;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid var(--primary-border);
+      color: #7dd3fc;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 6.5vw, 3.75rem);
+      font-size: clamp(2.3rem, 7vw, 4.25rem);
       margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      max-width: 950px;
     }
 
-    .hero h1 .hero-line-muted {
+    .hero-line-muted {
       color: var(--muted);
       font-weight: 600;
     }
@@ -186,227 +468,983 @@
       vertical-align: top;
       min-width: 0;
     }
-    .typing-text { color: var(--primary); font-weight: 700; }
+    
+    .typing-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
 
-    .hero p {
-      max-width: 36rem;
-      margin: 1.5rem auto 0;
-      color: var(--muted);
-      font-size: clamp(0.95rem, 2vw, 1.0625rem);
+    .hero-lead {
+      max-width: 44rem;
+      margin: 1.75rem auto 0;
+      color: #cbd5e1;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .btn-group {
+    /* Upwork Headline Highlight Banner */
+    .hero-vision-box {
+      max-width: 48rem;
+      margin: 2rem auto 0;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.04) 100%);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.6rem;
+      color: #e0f2fe;
+      font-size: 0.98rem;
+      font-weight: 500;
       display: flex;
-      gap: 10px;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn-group .btn {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.4em;
-    }
-    .btn {
-      padding: 0.65rem 1.35rem;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #0f172a;
-      border: 1px solid transparent;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-    .btn-primary:hover {
-      background: #7dd3fc;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border-strong);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .btn-outline:hover {
-      border-color: rgba(56, 189, 248, 0.45);
-      color: var(--primary);
-      background: var(--primary-dim);
-    }
-
-    .btn:hover { transform: none; }
-
-    .section { padding: clamp(64px, 10vw, 100px) clamp(20px, 5vw, 48px); max-width: 920px; margin: 0 auto; }
-    #about { scroll-margin-top: calc(var(--header-h) + 12px); }
-
-    .about-container {
+      gap: 16px;
       text-align: left;
-      max-width: 100%;
-      margin: 0 auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
+    .hero-vision-box i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* Metric Counters Banner */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      max-width: 800px;
+      margin: 3rem auto 0;
+      width: 100%;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 0.8rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: all 0.2s ease;
+    }
+    .metric-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .metric-num {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2px;
+    }
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* General Section Styling */
+    .section {
+      padding: clamp(70px, 10vw, 110px) clamp(20px, 5vw, 48px);
+      max-width: 1100px;
+      margin: 0 auto;
+      scroll-margin-top: 85px;
+    }
+
     .section-title {
       color: var(--text);
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0 0 1.5rem;
+      font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
     }
+
     .section-title span {
       display: block;
       font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-    .about-content p {
-      color: #cbd5e1;
-      font-size: 1.025rem;
-      margin: 0 0 1.25rem;
-      line-height: 1.75;
-    }
-    .ai-badge {
-      background: var(--primary-dim);
-      border: 1px solid var(--border-strong);
-      padding: 1.25rem 1.35rem;
-      margin: 1.75rem 0;
-      border-radius: var(--radius);
-    }
-    .ai-badge p { margin: 0; color: #e2e8f0; font-size: 0.98rem; line-height: 1.65; }
-    strong { color: var(--primary); font-weight: 600; }
 
-    .project-card {
-      background: rgba(255, 255, 255, 0.02);
+    .section-lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 40rem;
+      margin: 0 0 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* Glass Cards */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.5rem 1.5rem 1.6rem;
-      border-radius: var(--radius);
-      margin-top: 1.75rem;
+      padding: clamp(1.6rem, 4vw, 2.5rem);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     }
-    .project-kicker {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin-bottom: 0.35rem;
-    }
-    .project-title {
-      color: var(--text);
-      margin: 0 0 0.75rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .project-desc {
+
+    /* About Section */
+    .about-text p {
       color: #cbd5e1;
+      font-size: 1.05rem;
       margin: 0 0 1.25rem;
+      line-height: 1.8;
+    }
+
+    .about-text strong {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .ai-badge {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(129, 140, 248, 0.06) 100%);
+      border: 1px solid var(--primary-border);
+      padding: 1.35rem 1.6rem;
+      margin: 1.75rem 0 0;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .ai-badge i {
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-top: 2px;
+    }
+    .ai-badge p {
+      margin: 0;
+      color: #e2e8f0;
       font-size: 0.98rem;
       line-height: 1.7;
     }
-    .btn-inline { display: inline-block; }
 
-    .credentials-block { margin-top: 2.5rem; }
-    .subsection-title {
-      margin: 0 0 1rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted-2);
+    /* Services Grid ("What I Can Build For You") */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
     }
 
-    .cert-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 0;
-    }
-    .cert-tag {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.03);
+    .service-card {
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 0.45rem 0.85rem;
-      border-radius: var(--radius-pill);
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
-    .cert-tag:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(56, 189, 248, 0.35);
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .service-card:hover {
+      background: var(--card-bg-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 0.65rem;
+      color: var(--text);
+      letter-spacing: -0.015em;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Tech Stack Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: border-color 0.25s ease;
+    }
+    .skill-category:hover { border-color: var(--border-hover); }
+
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.35rem;
+    }
+    .skill-category-header i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .skill-category-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
       color: var(--text);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+    .skill-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px) saturate(1.1);
-      padding: clamp(1.5rem, 4vw, 2.25rem);
-      border-radius: var(--radius);
+    .skill-tag {
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.035);
       border: 1px solid var(--border);
-      transition: border-color 0.25s ease;
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+    }
+    .skill-tag:hover {
+      border-color: var(--border-strong);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .skill-tag.highlight {
+      background: var(--primary-dim);
+      border-color: var(--primary-border);
+      color: #7dd3fc;
     }
 
-    .card:hover { border-color: var(--border-strong); transform: none; }
-    .card h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
+    /* "Why Clients Like Working With Me" Section */
+    .why-me-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
 
+    .why-me-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .why-me-card:hover {
+      border-color: rgba(20, 168, 0, 0.45);
+      background: var(--card-bg-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .why-step-num {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+
+    .why-me-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      color: var(--text);
+    }
+
+    .why-me-card p {
+      color: #94a3b8;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Experience Timeline Section */
+    .experience-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+      border: 3px solid var(--bg);
+      margin-top: 6px;
+      z-index: 2;
+    }
+
+    .timeline-line {
+      width: 2px;
+      flex-grow: 1;
+      background: linear-gradient(to bottom, var(--primary-border), rgba(255, 255, 255, 0.05));
+      margin-top: 4px;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem clamp(1.4rem, 3vw, 2rem);
+      flex-grow: 1;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .timeline-content:hover {
+      background: var(--card-bg-hover);
+      border-color: var(--border-hover);
+      transform: translateX(4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+
+    .timeline-role {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-company {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 2px 0 0;
+    }
+
+    .timeline-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-badge.current {
+      background: var(--upwork-dim);
+      border-color: rgba(20, 168, 0, 0.4);
+      color: #86efac;
+    }
+
+    .timeline-desc {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin: 0 0 1rem;
+    }
+
+    .timeline-bullets {
+      margin: 0 0 1.25rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .timeline-bullets li {
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* Featured Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .project-card.featured {
+      border-color: var(--primary-border);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(56, 189, 248, 0.05) 100%);
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-bg-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .project-status-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #86efac;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-title {
+      color: var(--text);
+      margin: 0 0 0.85rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .project-desc {
+      color: #cbd5e1;
+      margin: 0 0 1.4rem;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.6rem;
+    }
+
+    .p-tag {
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--font-mono);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* Verified Credentials Section & Interactive Filter */
+    .credentials-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.8rem, 4vw, 2.75rem);
+    }
+
+    .cert-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .filter-btn.active {
+      background: var(--primary-dim);
+      border-color: var(--primary-border);
+      color: #7dd3fc;
+      box-shadow: 0 0 14px var(--primary-dim);
+    }
+
+    .cert-stats-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 2rem;
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(20, 168, 0, 0.05) 100%);
+      border: 1px solid var(--primary-border);
+    }
+
+    .cert-count-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: #7dd3fc;
+      font-size: 1rem;
+    }
+    .cert-count-pill i { color: var(--primary); }
+
+    .cert-group {
+      margin-bottom: 2.25rem;
+      transition: all 0.3s ease;
+    }
+    .cert-group:last-child { margin-bottom: 0; }
+
+    .cert-group-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 1.1rem;
+    }
+
+    .cert-group-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .cert-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    .cert-tag {
+      font-size: 0.83rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cert-tag-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cert-tag-title i {
+      color: var(--primary);
+      flex-shrink: 0;
+      font-size: 0.88rem;
+    }
+    .cert-tag-issuer {
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+    .cert-tag:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--primary-border);
+      color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    .cert-tag:hover .cert-tag-issuer {
+      background: var(--primary-dim);
+      color: #7dd3fc;
+      border-color: var(--primary-border);
+    }
+
+    /* Call To Action Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(20, 168, 0, 0.15) 100%);
+      border: 1px solid rgba(20, 168, 0, 0.4);
+      border-radius: var(--radius-lg);
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+      text-align: center;
+      margin-top: 2rem;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(20, 168, 0, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.8rem, 4vw, 2.65rem);
+      font-weight: 800;
+      margin: 0 0 1rem;
+      letter-spacing: -0.035em;
+      color: var(--text);
+    }
+
+    .cta-banner p {
+      max-width: 42rem;
+      margin: 0 auto 2.25rem;
+      color: #cbd5e1;
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 3rem clamp(20px, 5vw, 48px) 2.5rem;
+      padding: 4rem clamp(20px, 5vw, 48px) 3rem;
       border-top: 1px solid var(--border);
       color: var(--muted-2);
       font-size: 0.875rem;
+      background: rgba(3, 7, 18, 0.6);
     }
     footer p { margin: 0; }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 1.25rem 0;
+    }
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .footer-socials a:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-dim);
+      transform: translateY(-2px);
+    }
     .footer-note {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       margin-top: 0.65rem !important;
       color: var(--muted-2);
-      opacity: 0.85;
     }
 
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    /* Scroll Reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       #bg-canvas { display: none; }
+      .status-dot { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
-      .nav-links a:hover,
       .btn:hover,
-      .cert-tag:hover,
-      .card:hover { transform: none; }
+      .service-card:hover,
+      .why-me-card:hover,
+      .project-card:hover,
+      .cert-tag:hover { transform: none; }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1100px) {
+      .brand-badge {
+        display: none;
+      }
+      .nav-links a {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .nav-toggle {
+        display: inline-flex;
+      }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        background: rgba(11, 15, 25, 0.95);
+        backdrop-filter: blur(28px) saturate(1.4);
+        -webkit-backdrop-filter: blur(28px) saturate(1.4);
+        padding: 12px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1001;
+      }
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .nav-links a {
+        padding: 10px 14px;
+        font-size: 0.88rem;
+        border-radius: 12px;
+        justify-content: flex-start;
+      }
+      .hero {
+        padding-top: 130px;
+      }
+      .hero-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 10px 12px;
+      }
+      .nav-container {
+        padding: 0 6px 0 12px;
+        height: 50px;
+      }
+      .brand-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+      }
+      .logo {
+        font-size: 0.88rem;
+      }
+      .nav-upwork-btn {
+        padding: 6px 11px;
+        font-size: 0.75rem;
+        gap: 5px;
+      }
+      .timeline-item {
+        gap: 12px;
+      }
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .timeline-content {
+        padding: 1.4rem 1.1rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .cert-links {
+        grid-template-columns: 1fr;
+      }
+      .cert-tag-title {
+        white-space: normal;
+        word-break: break-word;
+      }
+      .cert-stats-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .cert-filter-bar {
+        gap: 8px;
+      }
+      .filter-btn {
+        font-size: 0.76rem;
+        padding: 6px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-upwork-btn span {
+        display: none;
+      }
+      .nav-upwork-btn {
+        padding: 6px 10px;
+      }
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-group {
+        width: 100%;
+      }
     }
   </style>
+
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Abraham Worku Gebreselassie",
     "alternateName": "Abraham Worku",
-    "jobTitle": "Full-Stack Web Developer",
+    "jobTitle": "Front-End Web Developer",
     "url": "https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3",
     "sameAs": [
       "https://github.com/abrahamwgs",
       "https://www.linkedin.com/in/abraham-worku-286339231",
       "https://www.credly.com/users/abraham-worku.1b641880"
     ],
-    "knowsAbout": ["Web development", "Artificial intelligence", "Full-stack engineering"]
+    "knowsAbout": [
+      "Front-End Web Development",
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Three.js",
+      "GSAP",
+      "AI-Assisted Development",
+      "Cursor AI",
+      "Responsive Web Design",
+      "Performance Optimization"
+    ]
   }
   </script>
 </head>
@@ -417,126 +1455,838 @@
 
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+<!-- Modern Pill Header & Nav (Strict Single Row) -->
 <header>
-  <a href="#top" class="logo">ABRAHAM WORKU</a>
-  <nav class="nav-links" aria-label="Site and social links">
-    <a href="#about" class="nav-onpage">
-      <i class="fa-solid fa-id-card" aria-hidden="true"></i> Profile
+  <div class="nav-container">
+    <a href="#top" class="brand-wrap" aria-label="Abraham Worku Portfolio Home">
+      <div class="brand-avatar" aria-hidden="true">AW</div>
+      <span class="logo">Abraham Worku</span>
+      <span class="brand-badge">Front-End Dev</span>
     </a>
-    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-upwork" aria-hidden="true"></i> Upwork
-    </a>
-    <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
-    </a>
-  </nav>
+    <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+      <a href="#about"><i class="fa-solid fa-user" aria-hidden="true"></i> About</a>
+      <a href="#services"><i class="fa-solid fa-code" aria-hidden="true"></i> Services</a>
+      <a href="#skills"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Stack</a>
+      <a href="#why-me"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Why Me</a>
+      <a href="#experience"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Experience</a>
+      <a href="#projects"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Projects</a>
+      <a href="#credentials"><i class="fa-solid fa-award" aria-hidden="true"></i> Badges</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="nav-upwork-btn">
+        <i class="fa-brands fa-upwork" aria-hidden="true"></i> <span>Hire on Upwork</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <main>
-<section class="hero" aria-labelledby="hero-heading">
-  <h1 id="hero-heading"><span class="hero-line-muted">I am a</span><br><span class="typing-line" id="typing-line"><span class="typing-text" id="typewriter"></span></span></h1>
-  <p>
-    Specializing in Agentic Workflows, Vector Search, and modern application architectures 
-    to build the next generation of intelligent software.
-  </p>
-  <div class="btn-group">
-    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Hire on Upwork</a>
-    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-    <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub</a>
-    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Credly Profile</a>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-badge-wrap">
+      <div class="hero-status-pill">
+        <span class="status-dot"></span>
+        Available for Freelance Opportunities on Upwork
+      </div>
+      <div class="hero-tech-pill">
+        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> AI-Accelerated
+      </div>
+    </div>
 
-<section class="section reveal" id="about" aria-labelledby="profile-heading">
-  <div class="card about-container">
-    <h2 id="profile-heading" class="section-title"><span>About</span>Professional profile</h2>
-    <div class="about-content">
-      <p>
-        I’m a <strong>Full-Stack Web Developer</strong> passionate about building clean, responsive, and user-focused applications from front to back. 
-        With hands-on experience in <strong>HTML5, CSS3, and JavaScript</strong>, I specialize in turning complex ideas into practical, 
-        functional digital solutions that work seamlessly across the entire stack.
-      </p>
-      
-      <p>
-        I am currently available for <strong>freelance opportunities</strong> and contract work. I pride myself on clear communication, 
-        efficient delivery, and building maintainable codebases that solve real-world problems.
-      </p>
+    <h1 id="hero-heading">
+      <span class="hero-line-muted">I am a</span><br>
+      <span class="typing-line" id="typing-line">
+        <span class="typing-text" id="typewriter"></span>
+      </span>
+    </h1>
 
-      <div class="ai-badge">
+    <p class="hero-lead">
+      Specializing in building clean, modern, and high-performance websites. Combining solid core programming skills with advanced AI tools and modern web frameworks to deliver exceptional results faster, more accurately, and at great value for clients.
+    </p>
+
+    <!-- Upwork Headline Highlight Banner -->
+    <div class="hero-vision-box">
+      <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+      <span>
+        "If you need a fast, professional, and modern website built to standard, I’m ready to help bring your vision to life. Let’s build something great!"
+      </span>
+    </div>
+
+    <div class="btn-group">
+      <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="btn btn-upwork">
+        <i class="fa-brands fa-upwork" aria-hidden="true"></i> Hire Abraham on Upwork
+      </a>
+      <a href="#projects" class="btn btn-primary">
+        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i> View Featured Projects
+      </a>
+      <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+      </a>
+      <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <i class="fa-solid fa-certificate" aria-hidden="true"></i> Credly Badges
+      </a>
+    </div>
+
+    <!-- Modern Key Metrics Row -->
+    <div class="hero-metrics">
+      <div class="metric-card">
+        <div class="metric-num">39+</div>
+        <div class="metric-label">Verified Badges & Certs</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">100%</div>
+        <div class="metric-label">Responsive Layouts</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">Fast</div>
+        <div class="metric-label">AI-Assisted Delivery</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">Modern</div>
+        <div class="metric-label">React · Tailwind · Three.js</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section reveal" id="about" aria-labelledby="about-heading">
+    <div class="card">
+      <h2 id="about-heading" class="section-title">
+        <span>Overview</span>About Me
+      </h2>
+      <div class="about-text">
         <p>
-          <strong>The AI edge.</strong> I leverage modern AI tools and <strong>prompt engineering</strong> to accelerate
-          full-stack development, debug efficiently, and explore clear architectural options.
+          Hello! I’m <strong>Abraham</strong>, a <strong>Front-End Web Developer</strong> specializing in building clean, modern, and high-performance websites. I combine solid core programming skills with advanced AI tools and modern web frameworks to deliver exceptional results faster, more accurately, and at a great value for my clients.
         </p>
-      </div>
-
-      <div class="project-card">
-        <span class="project-kicker">Featured work</span>
-        <h3 class="project-title">Habiye Academy</h3>
-        <p class="project-desc">
-          Custom <strong>school registration system</strong> with a streamlined enrollment flow and a focused, easy-to-use interface.
+        <p>
+          Whether creating brand-new digital experiences from scratch or modernizing existing interfaces, I focus on writing clean, maintainable code that looks stunning on every device and helps businesses stand out.
         </p>
-        <a href="https://habiyeacademy.com/index.php" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-inline">View live site</a>
-      </div>
 
-      <div class="credentials-block">
-        <h4 class="subsection-title">Verified credentials</h4>
-        <div class="cert-links">
-          <a href="https://www.udemy.com/certificate/UC-fd4b8e32-d8f8-494f-95d3-39772590cfa6/" target="_blank" rel="noopener noreferrer" class="cert-tag">Machine Learning for Beginners - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-d691b97d-c77d-45cb-b168-01ef05c0b412/" target="_blank" rel="noopener noreferrer" class="cert-tag">Mastering HTML5 - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-d875da77-e323-4349-bfd9-789cc5213061/" target="_blank" rel="noopener noreferrer" class="cert-tag">Hands-On ChatGPT AI - Udemy</a>
-          <a href="https://www.udemy.com/certificate/UC-bc13d987-98e4-449d-b850-6e45fb7de1ff/" target="_blank" rel="noopener noreferrer" class="cert-tag">Prompt Engineering - Udemy</a>
-          <a href="https://www.life-global.org/certificate/8a4c5444-2c03-496a-bdfa-c7fb08f4c1f2" target="_blank" rel="noopener noreferrer" class="cert-tag">AI for Beginners - HP LIFE</a>
-          <a href="https://www.udacity.com/certificate/e/1102532e-2cdd-11f1-b9b0-c77bbe099b72" target="_blank" rel="noopener noreferrer" class="cert-tag">AWS AI Practitioner Challenge</a>
-          <a href="https://www.udacity.com/certificate/e/ebb202fa-f7cf-11f0-8d47-9b7370ddc26e" target="_blank" rel="noopener noreferrer" class="cert-tag">Android Developer Fundamentals</a>
-          <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" rel="noopener noreferrer" class="cert-tag">AI Fundamentals - Udacity</a>
+        <div class="ai-badge">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+          <div>
+            <strong>The AI-Assisted Advantage:</strong> By integrating tools like Cursor AI and prompt engineering into daily development, I test edge cases thoroughly, automate repetitive tasks, and deliver production-ready code with higher speed and precision.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Services Section: What I Can Build For You -->
+  <section class="section reveal" id="services" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="section-title">
+      <span>Services</span>What I Can Build For You
+    </h2>
+    <p class="section-lead">
+      End-to-end frontend solutions tailored to your project requirements and designed for long-term reliability.
+    </p>
+
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        </div>
+        <h3>Full Website Design & Development</h3>
+        <p>Complete custom websites designed and developed from concept to deployment with clean architecture and modern UX.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+        </div>
+        <h3>Landing Pages & Business Websites</h3>
+        <p>High-converting, brand-aligned landing pages engineered to captivate visitors and drive user actions.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fa-solid fa-address-card" aria-hidden="true"></i>
+        </div>
+        <h3>Portfolios & Academic Hubs</h3>
+        <p>Personal brand showcases, interactive freelancer portfolios, and academic portals with polished typography and clear layouts.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+        </div>
+        <h3>Fully Responsive UI</h3>
+        <p>Adaptive, pixel-perfect designs engineered to look flawless and perform smoothly across mobile, tablet, and desktop screens.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+        </div>
+        <h3>Bug Fixing & Performance Optimization</h3>
+        <p>Diagnosing and resolving CSS/JS layout defects, fixing cross-browser compatibility issues, and boosting Core Web Vitals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies & Tools I Use -->
+  <section class="section reveal" id="skills" aria-labelledby="skills-heading">
+    <h2 id="skills-heading" class="section-title">
+      <span>Tech Stack</span>Technologies & Tools I Use
+    </h2>
+    <p class="section-lead">
+      A carefully chosen stack of modern core web standards, powerful UI libraries, and accelerated developer tooling.
+    </p>
+
+    <div class="skills-grid">
+      <!-- Core -->
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <h3>Core Standards</h3>
+        </div>
+        <div class="skill-tag-list">
+          <span class="skill-tag highlight"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML5 (Semantic)</span>
+          <span class="skill-tag highlight"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS3 (Modern Flex/Grid)</span>
+          <span class="skill-tag highlight"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript (ES6+)</span>
+          <span class="skill-tag">Web Accessibility (a11y)</span>
+          <span class="skill-tag">Responsive Layouts</span>
+        </div>
+      </div>
+
+      <!-- Frameworks & Libraries -->
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <i class="fa-solid fa-cubes" aria-hidden="true"></i>
+          <h3>Frameworks & Libraries</h3>
+        </div>
+        <div class="skill-tag-list">
+          <span class="skill-tag highlight"><i class="fa-brands fa-react" aria-hidden="true"></i> React</span>
+          <span class="skill-tag highlight"><i class="fa-brands fa-bootstrap" aria-hidden="true"></i> Bootstrap</span>
+          <span class="skill-tag highlight"><i class="fa-solid fa-wind" aria-hidden="true"></i> Tailwind CSS</span>
+          <span class="skill-tag"><i class="fa-solid fa-cube" aria-hidden="true"></i> Three.js</span>
+          <span class="skill-tag"><i class="fa-solid fa-play" aria-hidden="true"></i> GSAP</span>
+        </div>
+      </div>
+
+      <!-- Workflow & Tools -->
+      <div class="skill-category">
+        <div class="skill-category-header">
+          <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+          <h3>Workflow & AI Tools</h3>
+        </div>
+        <div class="skill-tag-list">
+          <span class="skill-tag highlight"><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git</span>
+          <span class="skill-tag highlight"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</span>
+          <span class="skill-tag highlight"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Cursor AI</span>
+          <span class="skill-tag">AI-Assisted Workflows</span>
+          <span class="skill-tag">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Clients Like Working With Me -->
+  <section class="section reveal" id="why-me" aria-labelledby="why-heading">
+    <h2 id="why-heading" class="section-title">
+      <span>Value Proposition</span>Why Clients Like Working With Me
+    </h2>
+    <p class="section-lead">
+      I treat every client's project with ownership, transparency, and high quality standards.
+    </p>
+
+    <div class="why-me-grid">
+      <div class="why-me-card">
+        <span class="why-step-num">01</span>
+        <span class="why-icon">⚡</span>
+        <h3>Fast Delivery</h3>
+        <p>Leveraging modern workflows and AI acceleration to build efficiently without ever sacrificing quality or cutting corners.</p>
+      </div>
+
+      <div class="why-me-card">
+        <span class="why-step-num">02</span>
+        <span class="why-icon">📐</span>
+        <h3>Pixel-Perfect & Responsive</h3>
+        <p>Clean, organized, and standards-compliant code crafted to look sharp, render quickly, and behave seamlessly on any screen size.</p>
+      </div>
+
+      <div class="why-me-card">
+        <span class="why-step-num">03</span>
+        <span class="why-icon">💬</span>
+        <h3>Clear Communication</h3>
+        <p>Transparent updates, proactive communication, and reliable milestone tracking from initial kickoff to final project delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section reveal" id="experience" aria-labelledby="experience-heading">
+    <h2 id="experience-heading" class="section-title">
+      <span>Career Journey</span>Work Experience
+    </h2>
+    <p class="section-lead">
+      My professional background delivering modern web applications, client solutions, and user-centric interfaces.
+    </p>
+
+    <div class="experience-timeline">
+      <!-- Role 1 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Freelance Front-End Developer</span>
+              <h3 class="timeline-company">Upwork & Independent Clients</h3>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-badge current"><span class="status-dot"></span> 2024 – Present</span>
+              <span class="timeline-badge">Remote</span>
+            </div>
+          </div>
+          <p class="timeline-desc">
+            Building clean, responsive, and high-performance websites for international clients. Combining core web fundamentals with modern AI-accelerated workflows (Cursor AI, prompt engineering) to deliver production-grade code faster, more accurately, and at great value.
+          </p>
+          <ul class="timeline-bullets">
+            <li>Designed and launched full websites, conversion-focused landing pages, and personal portfolios.</li>
+            <li>Engineered fully responsive layouts across mobile, tablet, and desktop devices with modern CSS (Flexbox, Grid).</li>
+            <li>Resolved layout defects, debugged frontend state, and optimized Core Web Vitals for maximum performance.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="p-tag">HTML5 / CSS3</span>
+            <span class="p-tag">JavaScript (ES6+)</span>
+            <span class="p-tag">React</span>
+            <span class="p-tag">Tailwind CSS</span>
+            <span class="p-tag">Cursor AI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Web Developer</span>
+              <h3 class="timeline-company">Habiye Academy</h3>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-badge">Contract</span>
+              <span class="timeline-badge">Addis Ababa, Ethiopia</span>
+            </div>
+          </div>
+          <p class="timeline-desc">
+            Engineered an end-to-end custom student registration and admission management system for Habiye Academy, streamlining the enrollment process for students and administrators.
+          </p>
+          <ul class="timeline-bullets">
+            <li>Architected an intuitive multi-step registration workflow with client-side and server-side validation.</li>
+            <li>Created a mobile-first, clean user interface with high accessibility and instant form feedback.</li>
+            <li>Maintained seamless production deployment with zero downtime during active enrollment windows.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="p-tag">PHP</span>
+            <span class="p-tag">Full-Stack Development</span>
+            <span class="p-tag">Form Architecture</span>
+            <span class="p-tag">Responsive UI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 3 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div>
+              <span class="timeline-role">Web Development Intern</span>
+              <h3 class="timeline-company">CodeAlpha</h3>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-badge">Internship</span>
+              <span class="timeline-badge">Remote</span>
+            </div>
+          </div>
+          <p class="timeline-desc">
+            Completed an intensive virtual software engineering and web development internship focused on frontend architecture, responsive web components, and modern coding standards.
+          </p>
+          <ul class="timeline-bullets">
+            <li>Developed modular, interactive UI components and modern web applications using vanilla JavaScript and CSS3.</li>
+            <li>Implemented Git version control workflows, repository management, and automated deployments via GitHub Pages.</li>
+            <li>Conducted code reviews, debugged edge cases, and improved overall rendering speed and user experience.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="p-tag">Frontend Architecture</span>
+            <span class="p-tag">Git / GitHub</span>
+            <span class="p-tag">UI / UX</span>
+            <span class="p-tag">Performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section reveal" id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading" class="section-title">
+      <span>Portfolio</span>Featured Projects
+    </h2>
+    <p class="section-lead">
+      Real-world applications and functional systems built to solve practical challenges.
+    </p>
+
+    <div class="projects-grid">
+      <!-- Project 1: Habiye Academy -->
+      <div class="project-card featured">
+        <div>
+          <div class="project-top-meta">
+            <span class="project-kicker">Featured Production System</span>
+            <span class="project-status-tag"><span class="status-dot"></span> Live Platform</span>
+          </div>
+          <h3 class="project-title">Habiye Academy</h3>
+          <p class="project-desc">
+            A comprehensive custom school registration platform built with a streamlined student enrollment flow, accessible form validation, and an intuitive user interface.
+          </p>
+          <div class="project-tags">
+            <span class="p-tag">PHP / Full-Stack</span>
+            <span class="p-tag">Student Enrollment</span>
+            <span class="p-tag">Responsive UI</span>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a href="https://habiyeacademy.com/index.php" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> View Live Site
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: Dr-Goraw -->
+      <div class="project-card">
+        <div>
+          <div class="project-top-meta">
+            <span class="project-kicker">Interactive Web App</span>
+            <span class="project-status-tag"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> GitHub Pages</span>
+          </div>
+          <h3 class="project-title">Dr-Goraw</h3>
+          <p class="project-desc">
+            A responsive, interactive front-end web application deployed with modern JavaScript, modular CSS structure, and optimized client performance.
+          </p>
+          <div class="project-tags">
+            <span class="p-tag">JavaScript (ES6+)</span>
+            <span class="p-tag">HTML5 / CSS3</span>
+            <span class="p-tag">Frontend UI</span>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/Abrahamwgs/Dr-Goraw" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-brands fa-github" aria-hidden="true"></i> View Repository
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: AskDocs -->
+      <div class="project-card">
+        <div>
+          <div class="project-top-meta">
+            <span class="project-kicker">AI & RAG Application</span>
+            <span class="project-status-tag"><i class="fa-solid fa-brain" aria-hidden="true"></i> Vector AI</span>
+          </div>
+          <h3 class="project-title">AskDocs</h3>
+          <p class="project-desc">
+            An intelligent document exploration and question-answering tool powered by vector retrieval and large language model integration.
+          </p>
+          <div class="project-tags">
+            <span class="p-tag">Python</span>
+            <span class="p-tag">Vector Search</span>
+            <span class="p-tag">AI Workflows</span>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/Abrahamwgs/AskDocs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-brands fa-github" aria-hidden="true"></i> View Repository
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4: SentimentScope -->
+      <div class="project-card">
+        <div>
+          <div class="project-top-meta">
+            <span class="project-kicker">Text Analytics Tool</span>
+            <span class="project-status-tag"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> Analytics</span>
+          </div>
+          <h3 class="project-title">SentimentScope</h3>
+          <p class="project-desc">
+            An interactive text sentiment evaluation platform offering real-time tone extraction and structured visual reporting for data insights.
+          </p>
+          <div class="project-tags">
+            <span class="p-tag">NLP</span>
+            <span class="p-tag">Interactive UI</span>
+            <span class="p-tag">Text Analytics</span>
+          </div>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/Abrahamwgs/SentimentScope" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-brands fa-github" aria-hidden="true"></i> View Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Credentials & Badges (Interactive Filter) -->
+  <section class="section reveal" id="credentials" aria-labelledby="credentials-heading">
+    <div class="credentials-wrap">
+      <h2 id="credentials-heading" class="section-title">
+        <span>Proof of Expertise</span>Verified Credentials & Badges
+      </h2>
+      <p class="section-lead">
+        Credentials verified across industry leaders including Cisco, IBM, O'Reilly, MongoDB, Udacity, and Udemy.
+      </p>
+
+      <div class="cert-stats-banner">
+        <div class="cert-count-pill">
+          <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+          39 Verified Credentials & Badges
+        </div>
+        <div style="font-size: 0.85rem; color: var(--muted);">
+          Synced with <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a> & <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">Credly</a>
+        </div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="cert-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Credentials (39)</button>
+        <button class="filter-btn" data-filter="web">Web & React</button>
+        <button class="filter-btn" data-filter="ai">AI & Cursor AI</button>
+        <button class="filter-btn" data-filter="data">Databases & Vector</button>
+        <button class="filter-btn" data-filter="foundations">Languages & Mobile</button>
+      </div>
+
+      <!-- Category 1: Front-End & Modern Web Architecture -->
+      <div class="cert-group" data-category="web">
+        <div class="cert-group-header">
+          <i class="fa-solid fa-layer-group" style="color: var(--primary);" aria-hidden="true"></i>
+          <h3 class="cert-group-title">Front-End & Modern Web Architecture</h3>
+        </div>
+        <div class="cert-links">
+          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/web-development-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-code" aria-hidden="true"></i> Web Development Fundamentals</span>
+            <span class="cert-tag-issuer">IBM SkillsBuild</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/intro-to-react" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-react" aria-hidden="true"></i> Intro to React</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/chatgpt-guide-react" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-react" aria-hidden="true"></i> ChatGPT Guide: React</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/learning-vue-js-2-0" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-vuejs" aria-hidden="true"></i> Learning Vue.js 2.0</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.udemy.com/certificate/UC-d691b97d-c77d-45cb-b168-01ef05c0b412/" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-html5" aria-hidden="true"></i> Mastering HTML5</span>
+            <span class="cert-tag-issuer">Udemy</span>
+          </a>
+          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/enterprise-design-thinking-practitioner.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Enterprise Design Thinking</span>
+            <span class="cert-tag-issuer">IBM</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 2: AI Engineering, Cursor AI & Agentic Workflows -->
+      <div class="cert-group" data-category="ai">
+        <div class="cert-group-header">
+          <i class="fa-solid fa-robot" style="color: var(--primary);" aria-hidden="true"></i>
+          <h3 class="cert-group-title">AI Engineering, Cursor AI & Agentic Workflows</h3>
+        </div>
+        <div class="cert-links">
+          <a href="https://www.credly.com/org/cisco/badge/prompt-like-an-engineer" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Prompt Like an Engineer</span>
+            <span class="cert-tag-issuer">Cisco</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-first-full-stack-dev-course" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> AI-First Full-Stack Dev</span>
+            <span class="cert-tag-issuer">O'Reilly / Packt</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/vibe-coding-with-cursor-ai" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Vibe Coding with Cursor AI</span>
+            <span class="cert-tag-issuer">O'Reilly / Packt</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-with-langgraph.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> AI Agents with LangGraph</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-and-context-eng" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-brain" aria-hidden="true"></i> AI Agents & Context Eng</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-core-components" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-microchip" aria-hidden="true"></i> AI Agents Core Components</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/engineer-model-interaction" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Engineer Model Interaction</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/task-decomposition" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Task Decomposition</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/build-your-own-ai-lab" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-flask" aria-hidden="true"></i> Build Your Own AI Lab</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/chatgpt-and-copilot-in-4-hours" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-comments" aria-hidden="true"></i> ChatGPT & Copilot</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/effective-chatgpt-prompts" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Effective ChatGPT Prompts</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/how-llms-work" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-gears" aria-hidden="true"></i> How LLMs Work</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/genai-essentials-for-everyone" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> GenAI Essentials</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/artificial-intelligence-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> AI Fundamentals</span>
+            <span class="cert-tag-issuer">IBM SkillsBuild</span>
+          </a>
+          <a href="https://www.udemy.com/certificate/UC-bc13d987-98e4-449d-b850-6e45fb7de1ff/" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Prompt Engineering</span>
+            <span class="cert-tag-issuer">Udemy</span>
+          </a>
+          <a href="https://www.udemy.com/certificate/UC-d875da77-e323-4349-bfd9-789cc5213061/" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-brain" aria-hidden="true"></i> Hands-On ChatGPT AI</span>
+            <span class="cert-tag-issuer">Udemy</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 3: Data, Databases & Vector Search -->
+      <div class="cert-group" data-category="data">
+        <div class="cert-group-header">
+          <i class="fa-solid fa-database" style="color: var(--primary);" aria-hidden="true"></i>
+          <h3 class="cert-group-title">Data, Databases & Vector Search</h3>
+        </div>
+        <div class="cert-links">
+          <a href="https://www.credly.com/org/mongodb/badge/building-ai-agents-with-mongodb" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-server" aria-hidden="true"></i> Building AI Agents</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/building-ai-powered-search-with-mongodb-vector-sear.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> AI Vector Search</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/memory-for-ai-applications-with-mongodb" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-memory" aria-hidden="true"></i> Memory for AI Applications</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/ai-and-innovation-how-mongodb-enables-a-resilient-a" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> AI & Innovation Strategy</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/mongodb-query-optimization-techniques" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Query Optimization</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/crud-operations-in-mongodb.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-table" aria-hidden="true"></i> CRUD Operations</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/mongodb/badge/mongodb-overview-core-concepts-and-architecture" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i> MongoDB Core Concepts</span>
+            <span class="cert-tag-issuer">MongoDB</span>
+          </a>
+          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/data-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Data Fundamentals</span>
+            <span class="cert-tag-issuer">IBM SkillsBuild</span>
+          </a>
+          <a href="https://www.udacity.com/certificate/e/1102532e-2cdd-11f1-b9b0-c77bbe099b72" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-aws" aria-hidden="true"></i> AWS AI Practitioner</span>
+            <span class="cert-tag-issuer">Udacity</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 4: Programming Languages, Mobile & Foundations -->
+      <div class="cert-group" data-category="foundations">
+        <div class="cert-group-header">
+          <i class="fa-solid fa-laptop-code" style="color: var(--primary);" aria-hidden="true"></i>
+          <h3 class="cert-group-title">Languages, Mobile & Foundations</h3>
+        </div>
+        <div class="cert-links">
+          <a href="https://www.credly.com/org/cisco/badge/python-essentials-1.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Essentials 1</span>
+            <span class="cert-tag-issuer">Cisco</span>
+          </a>
+          <a href="https://www.udacity.com/certificate/e/ebb202fa-f7cf-11f0-8d47-9b7370ddc26e" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-brands fa-android" aria-hidden="true"></i> Android Fundamentals</span>
+            <span class="cert-tag-issuer">Udacity</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/android-app-dev-livelessons" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-mobile" aria-hidden="true"></i> Android App Dev Lessons</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/simple-chat-app-in-android" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-comment" aria-hidden="true"></i> Android Chat App</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.credly.com/org/o-reilly-media/badge/create-meme-generator-app" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-image" aria-hidden="true"></i> Meme Generator App</span>
+            <span class="cert-tag-issuer">O'Reilly</span>
+          </a>
+          <a href="https://www.udacity.com/certificate/lp/7613d807-d122-4d00-9f7d-e518102d656d" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> AI Fundamentals</span>
+            <span class="cert-tag-issuer">Udacity</span>
+          </a>
+          <a href="https://www.life-global.org/certificate/8a4c5444-2c03-496a-bdfa-c7fb08f4c1f2" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-seedling" aria-hidden="true"></i> AI for Beginners</span>
+            <span class="cert-tag-issuer">HP LIFE</span>
+          </a>
+          <a href="https://www.udemy.com/certificate/UC-fd4b8e32-d8f8-494f-95d3-39772590cfa6/" target="_blank" rel="noopener noreferrer" class="cert-tag">
+            <span class="cert-tag-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Machine Learning Beginners</span>
+            <span class="cert-tag-issuer">Udemy</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready to Build / Hire CTA Banner -->
+  <section class="section reveal" aria-labelledby="cta-heading">
+    <div class="cta-banner">
+      <h2 id="cta-heading">Ready to bring your vision to life?</h2>
+      <p>
+        If you need a fast, professional, and modern website built to standard, I’m ready to collaborate. Let’s build something exceptional together on Upwork!
+      </p>
+      <div class="btn-group">
+        <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="btn btn-upwork">
+          <i class="fa-brands fa-upwork" aria-hidden="true"></i> Hire Abraham on Upwork
+        </a>
+        <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
+<!-- Footer -->
 <footer>
-  <p>© 2026 Abraham Worku Gebreselassie · Full-stack AI developer</p>
-  <p class="footer-note">Credentials issued via Udemy, HP LIFE, Udacity, and Credly · Updated May 2026</p>
+  <div class="footer-socials">
+    <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" title="Upwork Profile" aria-label="Upwork">
+      <i class="fa-brands fa-upwork" aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" title="Credly Badges" aria-label="Credly">
+      <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+    </a>
+  </div>
+  <p>© 2026 Abraham Worku Gebreselassie · Front-End Web Developer</p>
+  <p class="footer-note">Built for performance, responsiveness, and seamless client collaboration on Upwork.</p>
 </footer>
 
 <script>
+  // Canvas Particle System
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas ? canvas.getContext('2d') : null;
   let dots = [];
-  function init() {
+
+  function initCanvas() {
+    if (!canvas || !ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    dots = Array.from({length: 70}, () => ({
+    dots = Array.from({ length: 65 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      radius: Math.random() * 1.2 + 0.6
     }));
   }
-  function draw() {
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    ctx.fillStyle = '#38bdf8';
+
+  function drawCanvas() {
+    if (!canvas || !ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw links between nearby dots
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 110) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / 110)})`;
+          ctx.lineWidth = 0.6;
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw dots
     dots.forEach(d => {
-      d.x += d.vx; d.y += d.vy;
-      if(d.x < 0 || d.x > canvas.width) d.vx *= -1;
-      if(d.y < 0 || d.y > canvas.height) d.vy *= -1;
-      ctx.beginPath(); ctx.arc(d.x, d.y, 1.2, 0, Math.PI*2); ctx.fill();
+      d.x += d.vx;
+      d.y += d.vy;
+      if (d.x < 0 || d.x > canvas.width) d.vx *= -1;
+      if (d.y < 0 || d.y > canvas.height) d.vy *= -1;
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+      ctx.fill();
     });
-    requestAnimationFrame(draw);
-  }
-  if (!prefersReducedMotion) {
-    window.onresize = init;
-    init();
-    draw();
+
+    if (typeof window !== 'undefined' && (window.requestAnimationFrame || window.webkitRequestAnimationFrame)) {
+      (window.requestAnimationFrame || window.webkitRequestAnimationFrame)(drawCanvas);
+    } else {
+      setTimeout(drawCanvas, 16);
+    }
   }
 
-  const words = ["Web Developer", "AI Engineer", "Freelancer"];
+  if (!prefersReducedMotion && canvas) {
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    drawCanvas();
+  }
+
+  // Typewriter Effect
+  const words = [
+    "Front-End Web Developer",
+    "Modern UI Specialist",
+    "AI-Assisted Developer"
+  ];
   const typeEl = document.getElementById('typewriter');
   const typingLine = document.getElementById('typing-line');
   const heroHeading = document.getElementById('hero-heading');
@@ -551,9 +2301,9 @@
     probe.style.font = cs.font;
     probe.style.letterSpacing = cs.letterSpacing;
     document.body.appendChild(probe);
-    const candidates = prefersReducedMotion ? [words.join(' · '), ...words] : words.slice();
+
     let max = 0;
-    candidates.forEach((s) => {
+    words.forEach((s) => {
       probe.textContent = s;
       max = Math.max(max, probe.offsetWidth);
     });
@@ -567,22 +2317,38 @@
     resizeDebounce = setTimeout(updateTypingLineWidth, 80);
   });
 
-  let i = 0, j = 0, isDeleting = false;
-  function type() {
-    const current = words[i];
-    typeEl.textContent = current.substring(0, j);
-    if (!isDeleting && j < current.length) j++;
-    else if (isDeleting && j > 0) j--;
-    else { isDeleting = !isDeleting; if (!isDeleting) i = (i + 1) % words.length; }
-    setTimeout(type, isDeleting ? 80 : 150);
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    if (!typeEl) return;
+    const current = words[wordIndex];
+    typeEl.textContent = current.substring(0, charIndex);
+
+    if (!isDeleting && charIndex < current.length) {
+      charIndex++;
+      setTimeout(typeEffect, 90);
+    } else if (isDeleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(typeEffect, 45);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 400);
+      } else {
+        setTimeout(typeEffect, 1800);
+      }
+    }
   }
 
   function startTypewriter() {
     updateTypingLineWidth();
-    if (prefersReducedMotion) {
-      typeEl.textContent = words.join(' · ');
+    if (prefersReducedMotion && typeEl) {
+      typeEl.textContent = words[0];
     } else {
-      type();
+      typeEffect();
     }
   }
 
@@ -592,17 +2358,111 @@
     startTypewriter();
   }
 
+  // Interactive Credential Filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const certGroups = document.querySelectorAll('.cert-group');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      certGroups.forEach(group => {
+        if (filter === 'all' || group.getAttribute('data-category') === filter) {
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Scroll Reveal Animations
   function revealOnScroll() {
     document.querySelectorAll('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('active');
+      if (el.getBoundingClientRect().top < window.innerHeight - 60) {
+        el.classList.add('active');
+      }
     });
   }
+
   if (prefersReducedMotion) {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
   } else {
-    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll();
   }
+
+  // Mobile Nav Toggle & Single Row Interactions
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      }
+    });
+
+    // Close dropdown on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Active Nav Scrollspy
+  const spySections = document.querySelectorAll('section[id]');
+  const spyLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  function updateActiveNav() {
+    const scrollPos = window.pageYOffset + 140;
+    let currentSectionId = '';
+
+    spySections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    spyLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${currentSectionId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 </script>
 
 </body>
