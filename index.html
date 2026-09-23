@@ -34,6 +34,8 @@
       --primary-border: rgba(56, 189, 248, 0.24);
       --accent-indigo: #818cf8;
       --accent-purple: #c084fc;
+      --neon-cyan: #00f0ff;
+      --neon-emerald: #10b981;
       --upwork: #14a800;
       --upwork-dim: rgba(20, 168, 0, 0.14);
       --upwork-glow: rgba(20, 168, 0, 0.35);
@@ -42,12 +44,17 @@
       --bg-surface: #0b0f19;
       --card-bg: rgba(15, 23, 42, 0.65);
       --card-bg-hover: rgba(30, 41, 59, 0.75);
+      --card-bg: rgba(11, 15, 25, 0.75);
+      --card-bg-hover: rgba(20, 28, 45, 0.85);
+      --code-bg: #060912;
+      --code-header: #0a0f1d;
       --text: #f8fafc;
       --text-soft: #cbd5e1;
       --muted: #94a3b8;
       --muted-2: #64748b;
       --border: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(56, 189, 248, 0.35);
+      --border-hover: rgba(56, 189, 248, 0.4);
       --border-strong: rgba(255, 255, 255, 0.16);
       --radius-sm: 8px;
       --radius: 16px;
@@ -72,6 +79,12 @@
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.13), transparent 45%),
         radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 35%),
         radial-gradient(circle at 15% 65%, rgba(20, 168, 0, 0.06), transparent 35%);
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.18), transparent 48%),
+        radial-gradient(circle at 88% 28%, rgba(129, 140, 248, 0.12), transparent 42%),
+        radial-gradient(circle at 12% 65%, rgba(20, 168, 0, 0.08), transparent 42%),
+        linear-gradient(rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
       color: var(--text);
       overflow-x: hidden;
       line-height: 1.65;
@@ -175,17 +188,38 @@
     }
     .brand-wrap:hover .logo { color: var(--primary); }
 
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-size: 0.65rem;
       padding: 2px 8px;
       border-radius: var(--radius-pill);
       background: var(--primary-dim);
       border: 1px solid var(--primary-border);
       color: var(--primary);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86efac;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
+      font-family: var(--font-mono);
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 2s infinite;
     }
 
     .nav-links {
@@ -246,6 +280,34 @@
       gap: 8px;
       flex-shrink: 0;
       white-space: nowrap;
+    }
+
+    .nav-cmd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+    }
+    .nav-cmd-btn:hover {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      border-color: var(--primary-border);
+    }
+    .cmd-shortcut {
+      font-size: 0.65rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--text-soft);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-upwork-btn {
@@ -403,17 +465,59 @@
       gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.25rem;
     }
 
     .hero-status-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.8125rem;
       padding: 6px 16px;
       border-radius: var(--radius-pill);
       background: rgba(20, 168, 0, 0.08);
       border: 1px solid rgba(20, 168, 0, 0.35);
+      color: #86efac;
+      font-weight: 600;
+    }
+
+    /* High-Tech Developer Telemetry HUD */
+    .dev-hud {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hud-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hud-led {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 2s infinite;
+    }
+    .hud-sep {
+      color: rgba(255, 255, 255, 0.15);
+      font-weight: 700;
+    }
+    .hud-item.highlight {
       color: #86efac;
       font-size: 0.8rem;
       font-weight: 700;
@@ -424,14 +528,40 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      font-size: 0.8125rem;
       padding: 6px 14px;
       border-radius: var(--radius-pill);
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid var(--primary-border);
       color: #7dd3fc;
-      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-prompt-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--primary);
+      margin-bottom: 0.85rem;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid var(--primary-border);
+      color: #7dd3fc;
+    }
+    .prompt-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-weight: 700;
       font-family: var(--font-mono);
+      color: var(--text);
+    }
+    .prompt-status {
+      color: #64748b;
+      font-size: 0.72rem;
     }
 
     .status-dot {
@@ -460,6 +590,11 @@
     .hero-line-muted {
       color: var(--muted);
       font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: -0.01em;
+      display: inline-block;
+      margin-bottom: 0.25rem;
     }
 
     .typing-line {
@@ -497,15 +632,41 @@
       font-size: 0.98rem;
       font-weight: 500;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 16px;
       text-align: left;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
-    .hero-vision-box i {
-      font-size: 1.4rem;
+    .vision-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--primary);
       flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .vision-content {
+      flex-grow: 1;
+    }
+    .vision-tag {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .vision-text {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.65;
+      color: #e0f2fe;
     }
 
     /* Metric Counters Banner */
@@ -514,22 +675,50 @@
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 16px;
       max-width: 800px;
+      max-width: 820px;
       margin: 3rem auto 0;
       width: 100%;
     }
 
     .metric-card {
       background: rgba(15, 23, 42, 0.5);
+      background: rgba(11, 15, 25, 0.65);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1rem 0.8rem;
+      padding: 1.2rem 0.9rem;
       text-align: center;
       backdrop-filter: blur(12px);
       transition: all 0.2s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
     .metric-card:hover {
       border-color: var(--border-hover);
+      border-color: var(--primary-border);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .metric-corner-tl, .metric-corner-br {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(56, 189, 248, 0.35);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .metric-corner-tl { top: 6px; left: 8px; }
+    .metric-corner-br { bottom: 6px; right: 8px; }
+    .metric-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .metric-num {
@@ -540,6 +729,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 2px;
+      font-family: var(--font-mono);
     }
     .metric-label {
       font-size: 0.72rem;
@@ -555,6 +745,24 @@
       max-width: 1100px;
       margin: 0 auto;
       scroll-margin-top: 85px;
+    }
+
+    .section-kicker-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .kicker-tag { font-weight: 700; }
+    .kicker-spec {
+      color: var(--muted-2);
+      font-size: 0.68rem;
     }
 
     .section-title {
@@ -573,6 +781,7 @@
       text-transform: uppercase;
       color: var(--primary);
       margin-bottom: 0.4rem;
+      font-family: var(--font-mono);
     }
 
     .section-lead {
@@ -584,6 +793,7 @@
     }
 
     /* Glass Cards */
+    /* Glass Cards & Spotlight */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(20px) saturate(1.2);
@@ -592,9 +802,68 @@
       border: 1px solid var(--border);
       padding: clamp(1.6rem, 4vw, 2.5rem);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
     }
 
     /* About Section */
+    /* Precision Designer Corner Crosshairs */
+    .card-crosshair {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: rgba(56, 189, 248, 0.35);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      font-weight: 300;
+    }
+    .card-crosshair.tl { top: 8px; left: 10px; }
+    .card-crosshair.tr { top: 8px; right: 10px; }
+    .card-crosshair.bl { bottom: 8px; left: 10px; }
+    .card-crosshair.br { bottom: 8px; right: 10px; }
+
+    /* Interactive Spotlight hover */
+    .card::before, .service-card::before, .why-me-card::before, .project-card::before, .timeline-content::before, .skill-category::before {
+      content: '';
+      position: absolute;
+      top: var(--mouse-y, -300px);
+      left: var(--mouse-x, -300px);
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .card:hover::before, .service-card:hover::before, .why-me-card:hover::before, .project-card:hover::before, .timeline-content:hover::before, .skill-category:hover::before {
+      opacity: 1;
+    }
+    .card > *, .service-card > *, .why-me-card > *, .project-card > *, .timeline-content > *, .skill-category > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* About Section & Interactive IDE */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .about-grid > * {
+      min-width: 0;
+    }
+
     .about-text p {
       color: #cbd5e1;
       font-size: 1.05rem;
@@ -605,6 +874,143 @@
     .about-text strong {
       color: #38bdf8;
       font-weight: 700;
+    }
+
+    .tech-ide-wrapper {
+      width: 100%;
+      min-width: 0;
+    }
+    .ide-window {
+      background: var(--code-bg);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      font-family: var(--font-mono);
+      position: relative;
+    }
+    .ide-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--code-header);
+      padding: 8px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .ide-controls {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .ide-controls .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .ide-controls .dot.red { background: #ff5f56; }
+    .ide-controls .dot.yellow { background: #ffbd2e; }
+    .ide-controls .dot.green { background: #27c93f; }
+
+    .ide-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .ide-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .ide-tab:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .ide-tab.active {
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .ide-copy-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .ide-copy-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary-border);
+      background: var(--primary-dim);
+    }
+
+    .ide-content {
+      display: none;
+      padding: 16px;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      max-height: 380px;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+    .ide-content.active {
+      display: block;
+    }
+    .ide-content pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .ide-content code {
+      font-family: var(--font-mono);
+      color: #e2e8f0;
+    }
+
+    /* Syntax Tokens */
+    .c-keyword { color: #c084fc; font-weight: 600; }
+    .c-string  { color: #34d399; }
+    .c-var     { color: #38bdf8; font-weight: 600; }
+    .c-prop    { color: #f1f5f9; }
+    .c-type    { color: #facc15; }
+    .c-num     { color: #fb923c; }
+    .c-func    { color: #60a5fa; }
+    .c-comment { color: #64748b; font-style: italic; }
+    .t-green   { color: #4ade80; }
+    .t-cyan    { color: #38bdf8; }
+    .t-yellow  { color: #fbbf24; }
+    .t-dim     { color: #94a3b8; }
+    .t-blink   { animation: blink 1s infinite; color: #38bdf8; }
+
+    .ide-statusbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--code-header);
+      padding: 6px 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.68rem;
+      color: var(--muted-2);
+    }
+    .ide-statusbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .ai-badge {
@@ -704,6 +1110,8 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
       transition: border-color 0.25s ease;
     }
     .skill-category:hover { border-color: var(--border-hover); }
@@ -856,6 +1264,8 @@
       padding: 1.8rem clamp(1.4rem, 3vw, 2rem);
       flex-grow: 1;
       backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .timeline-content:hover {
@@ -956,6 +1366,7 @@
       justify-content: space-between;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
+      overflow: hidden;
     }
     .project-card.featured {
       border-color: var(--primary-border);
@@ -1288,9 +1699,12 @@
       .brand-badge {
         display: none;
       }
+      .nav-cmd-btn {
+        display: none;
+      }
       .nav-links a {
-        padding: 6px 8px;
-        font-size: 0.78rem;
+        padding: 6px 7px;
+        font-size: 0.77rem;
         gap: 4px;
       }
     }
@@ -1338,6 +1752,15 @@
       .hero-metrics {
         grid-template-columns: repeat(2, 1fr);
       }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .section-kicker-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1360,6 +1783,20 @@
         padding: 6px 11px;
         font-size: 0.75rem;
         gap: 5px;
+      }
+      .dev-hud {
+        padding: 6px 12px;
+        font-size: 0.68rem;
+        gap: 6px;
+      }
+      .hud-sep {
+        display: none;
+      }
+      .prompt-status {
+        display: none;
+      }
+      .card-crosshair {
+        display: none;
       }
       .timeline-item {
         gap: 12px;
@@ -1406,6 +1843,13 @@
       .hero-metrics {
         grid-template-columns: 1fr;
       }
+      .ide-tab {
+        padding: 3px 6px;
+        font-size: 0.68rem;
+      }
+      .ide-controls {
+        display: none;
+      }
       .btn {
         width: 100%;
         justify-content: center;
@@ -1413,6 +1857,183 @@
       .btn-group {
         width: 100%;
       }
+    }
+
+    /* High-Tech Command Palette Modal */
+    .cmd-palette-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: clamp(60px, 15vh, 120px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .cmd-palette-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cmd-palette-modal {
+      width: min(640px, calc(100% - 32px));
+      background: rgba(11, 15, 25, 0.96);
+      border: 1px solid var(--primary-border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 30px var(--primary-glow);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transform: translateY(-12px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: var(--font-mono);
+    }
+    .cmd-palette-backdrop.open .cmd-palette-modal {
+      transform: translateY(0) scale(1);
+    }
+    .cmd-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .cmd-icon {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    .cmd-header input {
+      flex-grow: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+    .cmd-header input::placeholder {
+      color: var(--muted-2);
+      font-size: 0.85rem;
+    }
+    .cmd-esc {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .cmd-list {
+      max-height: 340px;
+      overflow-y: auto;
+      padding: 10px 8px;
+    }
+    .cmd-group-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 8px 12px 4px;
+      letter-spacing: 0.08em;
+    }
+    .cmd-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .cmd-item i {
+      color: var(--muted);
+      width: 16px;
+      font-size: 0.85rem;
+    }
+    .cmd-item:hover, .cmd-item.selected {
+      background: rgba(56, 189, 248, 0.1);
+      color: #ffffff;
+    }
+    .cmd-item:hover i, .cmd-item.selected i {
+      color: var(--primary);
+    }
+    .cmd-item.highlight {
+      border: 1px solid rgba(20, 168, 0, 0.3);
+      background: rgba(20, 168, 0, 0.08);
+      color: #86efac;
+    }
+    .cmd-item.highlight i { color: #86efac; }
+    .cmd-badge {
+      font-size: 0.68rem;
+      color: var(--muted-2);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .cmd-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--border);
+      font-size: 0.68rem;
+      color: var(--muted-2);
+    }
+    .cmd-footer kbd {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 4px;
+      border-radius: 3px;
+      color: var(--muted);
+    }
+
+    /* High-Tech Toast */
+    .tech-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(11, 15, 25, 0.94);
+      border: 1px solid var(--primary-border);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 16px var(--primary-glow);
+      color: #7dd3fc;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 3000;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tech-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .service-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
     }
   </style>
 
@@ -1460,19 +2081,25 @@
   <div class="nav-container">
     <a href="#top" class="brand-wrap" aria-label="Abraham Worku Portfolio Home">
       <div class="brand-avatar" aria-hidden="true">AW</div>
-      <span class="logo">Abraham Worku</span>
-      <span class="brand-badge">Front-End Dev</span>
+      <div class="brand-identity">
+        <span class="logo">Abraham Worku</span>
+        <span class="brand-badge"><span class="badge-dot"></span> DEV_READY</span>
+      </div>
     </a>
     <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-      <a href="#about"><i class="fa-solid fa-user" aria-hidden="true"></i> About</a>
+      <a href="#about"><i class="fa-solid fa-terminal" aria-hidden="true"></i> About</a>
       <a href="#services"><i class="fa-solid fa-code" aria-hidden="true"></i> Services</a>
       <a href="#skills"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Stack</a>
-      <a href="#why-me"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i> Why Me</a>
-      <a href="#experience"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Experience</a>
+      <a href="#why-me"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Why Me</a>
+      <a href="#experience"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Experience</a>
       <a href="#projects"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Projects</a>
       <a href="#credentials"><i class="fa-solid fa-award" aria-hidden="true"></i> Badges</a>
     </nav>
     <div class="nav-actions">
+      <button class="nav-cmd-btn" id="open-cmd-btn" aria-label="Open Command Palette" title="Command Palette (⌘K / Ctrl+K)">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <span class="cmd-shortcut">⌘K</span>
+      </button>
       <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="nav-upwork-btn">
         <i class="fa-brands fa-upwork" aria-hidden="true"></i> <span>Hire on Upwork</span>
       </a>
@@ -1498,8 +2125,24 @@
       </div>
     </div>
 
+    <!-- High-Tech Developer Telemetry HUD -->
+    <div class="dev-hud">
+      <div class="hud-item"><span class="hud-led"></span> SYS: ONLINE</div>
+      <div class="hud-sep">/</div>
+      <div class="hud-item"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> git:main</div>
+      <div class="hud-sep">/</div>
+      <div class="hud-item"><i class="fa-solid fa-bolt" aria-hidden="true"></i> AI_ACCELERATED</div>
+      <div class="hud-sep">/</div>
+      <div class="hud-item highlight"><i class="fa-brands fa-upwork" aria-hidden="true"></i> OPEN FOR CONTRACTS</div>
+    </div>
+
+    <div class="hero-prompt-line">
+      <span class="prompt-chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> dev.init()</span>
+      <span class="prompt-status">READY // CORE WEB VITALS 100</span>
+    </div>
+
     <h1 id="hero-heading">
-      <span class="hero-line-muted">I am a</span><br>
+      <span class="hero-line-muted">&gt; developer.specialization =</span><br>
       <span class="typing-line" id="typing-line">
         <span class="typing-text" id="typewriter"></span>
       </span>
@@ -1511,10 +2154,15 @@
 
     <!-- Upwork Headline Highlight Banner -->
     <div class="hero-vision-box">
-      <i class="fa-solid fa-rocket" aria-hidden="true"></i>
-      <span>
-        "If you need a fast, professional, and modern website built to standard, I’m ready to help bring your vision to life. Let’s build something great!"
-      </span>
+      <div class="vision-icon-wrap">
+        <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+      </div>
+      <div class="vision-content">
+        <span class="vision-tag">// CLIENT COMMUNICATION // UPWORK OVERVIEW</span>
+        <p class="vision-text">
+          "If you need a fast, professional, and modern website built to standard, I’m ready to help bring your vision to life. Let’s build something great!"
+        </p>
+      </div>
     </div>
 
     <div class="btn-group">
@@ -1535,21 +2183,33 @@
       </a>
     </div>
 
-    <!-- Modern Key Metrics Row -->
+    <!-- Modern Key Metrics Row with High-Tech Indicators -->
     <div class="hero-metrics">
       <div class="metric-card">
+        <div class="metric-corner-tl">+</div>
+        <div class="metric-corner-br">+</div>
+        <div class="metric-kicker">// VERIFIED</div>
         <div class="metric-num">39+</div>
-        <div class="metric-label">Verified Badges & Certs</div>
+        <div class="metric-label">Verified Badges &amp; Certs</div>
       </div>
       <div class="metric-card">
+        <div class="metric-corner-tl">+</div>
+        <div class="metric-corner-br">+</div>
+        <div class="metric-kicker">// DESIGN SYSTEM</div>
         <div class="metric-num">100%</div>
-        <div class="metric-label">Responsive Layouts</div>
+        <div class="metric-label">Responsive &amp; Pixel-Perfect</div>
       </div>
       <div class="metric-card">
+        <div class="metric-corner-tl">+</div>
+        <div class="metric-corner-br">+</div>
+        <div class="metric-kicker">// VELOCITY</div>
         <div class="metric-num">Fast</div>
         <div class="metric-label">AI-Assisted Delivery</div>
       </div>
       <div class="metric-card">
+        <div class="metric-corner-tl">+</div>
+        <div class="metric-corner-br">+</div>
+        <div class="metric-kicker">// ARCHITECTURE</div>
         <div class="metric-num">Modern</div>
         <div class="metric-label">React · Tailwind · Three.js</div>
       </div>
@@ -1558,22 +2218,119 @@
 
   <!-- About Section -->
   <section class="section reveal" id="about" aria-labelledby="about-heading">
-    <div class="card">
-      <h2 id="about-heading" class="section-title">
-        <span>Overview</span>About Me
-      </h2>
-      <div class="about-text">
-        <p>
-          Hello! I’m <strong>Abraham</strong>, a <strong>Front-End Web Developer</strong> specializing in building clean, modern, and high-performance websites. I combine solid core programming skills with advanced AI tools and modern web frameworks to deliver exceptional results faster, more accurately, and at a great value for my clients.
-        </p>
-        <p>
-          Whether creating brand-new digital experiences from scratch or modernizing existing interfaces, I focus on writing clean, maintainable code that looks stunning on every device and helps businesses stand out.
-        </p>
+    <div class="card about-card">
+      <div class="card-crosshair tl">+</div>
+      <div class="card-crosshair tr">+</div>
+      <div class="card-crosshair bl">+</div>
+      <div class="card-crosshair br">+</div>
 
-        <div class="ai-badge">
-          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-          <div>
-            <strong>The AI-Assisted Advantage:</strong> By integrating tools like Cursor AI and prompt engineering into daily development, I test edge cases thoroughly, automate repetitive tasks, and deliver production-ready code with higher speed and precision.
+      <div class="section-kicker-bar">
+        <span class="kicker-tag">// 01. OVERVIEW &amp; PHILOSOPHY</span>
+        <span class="kicker-spec">[SPEC: DEV_PROFILE_V2]</span>
+      </div>
+
+      <h2 id="about-heading" class="section-title">
+        <span>Software Engineering &amp; UI Craft</span>About Me
+      </h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Hello! I’m <strong>Abraham</strong>, a <strong>Front-End Web Developer</strong> specializing in building clean, modern, and high-performance websites. I combine solid core programming skills with advanced AI tools and modern web frameworks to deliver exceptional results faster, more accurately, and at a great value for my clients.
+          </p>
+          <p>
+            Whether creating brand-new digital experiences from scratch or modernizing existing interfaces, I focus on writing clean, maintainable code that looks stunning on every device and helps businesses stand out.
+          </p>
+
+          <div class="ai-badge">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <div>
+              <strong>The AI-Assisted Advantage:</strong> By integrating tools like Cursor AI and prompt engineering into daily development, I test edge cases thoroughly, automate repetitive tasks, and deliver production-ready code with higher speed and precision.
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Tech Console / IDE Card -->
+        <div class="tech-ide-wrapper">
+          <div class="ide-window">
+            <div class="ide-titlebar">
+              <div class="ide-controls">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="ide-tabs" role="tablist">
+                <button class="ide-tab active" data-tab="config" role="tab" aria-selected="true">
+                  <i class="fa-solid fa-file-code" style="color: #38bdf8;"></i> developer.config.ts
+                </button>
+                <button class="ide-tab" data-tab="terminal" role="tab" aria-selected="false">
+                  <i class="fa-solid fa-terminal" style="color: #22c55e;"></i> terminal.sh
+                </button>
+                <button class="ide-tab" data-tab="tokens" role="tab" aria-selected="false">
+                  <i class="fa-solid fa-palette" style="color: #c084fc;"></i> design-tokens.css
+                </button>
+              </div>
+              <button class="ide-copy-btn" id="copy-ide-btn" title="Copy code" aria-label="Copy code">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Tab 1: TypeScript Config -->
+            <div class="ide-content active" id="tab-config">
+              <pre><code><span class="c-keyword">import</span> { <span class="c-type">DeveloperProfile</span>, <span class="c-type">TechStack</span> } <span class="c-keyword">from</span> <span class="c-string">'@upwork/abraham'</span>;
+
+<span class="c-keyword">export const</span> <span class="c-var">abraham</span>: <span class="c-type">DeveloperProfile</span> = {
+  <span class="c-prop">name</span>: <span class="c-string">'Abraham Worku Gebreselassie'</span>,
+  <span class="c-prop">title</span>: <span class="c-string">'Front-End Web Developer'</span>,
+  <span class="c-prop">status</span>: <span class="c-string">'Available for Freelance on Upwork'</span>,
+  <span class="c-prop">coreStack</span>: [<span class="c-string">'HTML5'</span>, <span class="c-string">'CSS3'</span>, <span class="c-string">'JavaScript (ES6+)'</span>, <span class="c-string">'React'</span>],
+  <span class="c-prop">styling</span>: [<span class="c-string">'Tailwind CSS'</span>, <span class="c-string">'Bootstrap'</span>, <span class="c-string">'CSS Grid'</span>, <span class="c-string">'Flexbox'</span>],
+  <span class="c-prop">animation</span>: [<span class="c-string">'Three.js'</span>, <span class="c-string">'GSAP'</span>, <span class="c-string">'Canvas 2D'</span>],
+  <span class="c-prop">workflow</span>: [<span class="c-string">'Git/GitHub'</span>, <span class="c-string">'Cursor AI'</span>, <span class="c-string">'Prompt Engineering'</span>],
+  <span class="c-prop">credentialsVerified</span>: <span class="c-num">39</span>,
+  <span class="c-prop">guarantees</span>: [<span class="c-string">'Fast Delivery'</span>, <span class="c-string">'Pixel-Perfect'</span>, <span class="c-string">'Clear Communication'</span>],
+  <span class="c-func">buildGreatWebsite</span>() {
+    <span class="c-keyword">return</span> <span class="c-string">"Let's bring your vision to life!"</span>;
+  }
+};</code></pre>
+            </div>
+
+            <!-- Tab 2: Terminal Output -->
+            <div class="ide-content" id="tab-terminal">
+              <pre><code><span class="t-dim">$ git status</span>
+<span class="t-green">On branch main &rarr; clean working tree</span>
+<span class="t-dim">$ npx lighthouse https://abraham-worku.dev --output=json</span>
+<span class="t-cyan">&check; Performance:      100 / 100</span>
+<span class="t-cyan">&check; Accessibility:    100 / 100</span>
+<span class="t-cyan">&check; Best Practices:    100 / 100</span>
+<span class="t-cyan">&check; SEO:               100 / 100</span>
+<span class="t-dim">$ node --check-badges</span>
+<span class="t-yellow">&check; 39 Verified Credentials Synced (Cisco, IBM, O'Reilly, MongoDB, Udacity, Udemy)</span>
+<span class="t-green">&check; Status: READY FOR CLIENT PROJECTS ON UPWORK</span>
+<span class="t-blink">&gt; ready for deployment_</span></code></pre>
+            </div>
+
+            <!-- Tab 3: Design Tokens -->
+            <div class="ide-content" id="tab-tokens">
+              <pre><code><span class="c-comment">/* Abraham Worku Design Tokens &amp; Grid Matrix */</span>
+<span class="c-keyword">:root</span> {
+  <span class="c-prop">--color-primary</span>:   <span class="c-string">#38bdf8</span>; <span class="c-comment">/* Neon Cyan */</span>
+  <span class="c-prop">--color-emerald</span>:   <span class="c-string">#14a800</span>; <span class="c-comment">/* Upwork Green */</span>
+  <span class="c-prop">--color-indigo</span>:    <span class="c-string">#818cf8</span>; <span class="c-comment">/* Accent Glow */</span>
+  <span class="c-prop">--typography</span>:      <span class="c-string">'Plus Jakarta Sans'</span>;
+  <span class="c-prop">--code-font</span>:       <span class="c-string">'JetBrains Mono'</span>;
+  <span class="c-prop">--grid-baseline</span>:   <span class="c-num">8px</span>;
+  <span class="c-prop">--glass-blur</span>:      <span class="c-num">24px</span>;
+  <span class="c-prop">--card-elevation</span>:  <span class="c-string">'0 12px 40px rgba(0, 0, 0, 0.45)'</span>;
+}</code></pre>
+            </div>
+
+            <div class="ide-statusbar">
+              <span><i class="fa-solid fa-code-branch" aria-hidden="true"></i> main*</span>
+              <span>UTF-8</span>
+              <span>TypeScript</span>
+              <span><span class="status-dot"></span> Telemetry Active</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1582,6 +2339,11 @@
 
   <!-- Services Section: What I Can Build For You -->
   <section class="section reveal" id="services" aria-labelledby="services-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 02. CAPABILITIES &amp; ARCHITECTURE</span>
+      <span class="kicker-spec">[SPEC: PRODUCTION_FRONTEND]</span>
+    </div>
+
     <h2 id="services-heading" class="section-title">
       <span>Services</span>What I Can Build For You
     </h2>
@@ -1592,33 +2354,49 @@
     <div class="services-grid">
       <!-- 1 -->
       <div class="service-card">
+        <div class="service-card-meta">
+          <span>ID: 01 // ARCHITECTURE</span>
+          <span>[FULL_LIFECYCLE]</span>
+        </div>
         <div class="service-icon-wrap">
           <i class="fa-solid fa-globe" aria-hidden="true"></i>
         </div>
-        <h3>Full Website Design & Development</h3>
+        <h3>Full Website Design &amp; Development</h3>
         <p>Complete custom websites designed and developed from concept to deployment with clean architecture and modern UX.</p>
       </div>
 
       <!-- 2 -->
       <div class="service-card">
+        <div class="service-card-meta">
+          <span>ID: 02 // PERFORMANCE</span>
+          <span>[HIGH_CONVERSION]</span>
+        </div>
         <div class="service-icon-wrap">
           <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
         </div>
-        <h3>Landing Pages & Business Websites</h3>
+        <h3>Landing Pages &amp; Business Websites</h3>
         <p>High-converting, brand-aligned landing pages engineered to captivate visitors and drive user actions.</p>
       </div>
 
       <!-- 3 -->
       <div class="service-card">
+        <div class="service-card-meta">
+          <span>ID: 03 // DESIGN_SYSTEM</span>
+          <span>[CUSTOM_UI]</span>
+        </div>
         <div class="service-icon-wrap">
           <i class="fa-solid fa-address-card" aria-hidden="true"></i>
         </div>
-        <h3>Portfolios & Academic Hubs</h3>
+        <h3>Portfolios &amp; Academic Hubs</h3>
         <p>Personal brand showcases, interactive freelancer portfolios, and academic portals with polished typography and clear layouts.</p>
       </div>
 
       <!-- 4 -->
       <div class="service-card">
+        <div class="service-card-meta">
+          <span>ID: 04 // RESPONSIVE</span>
+          <span>[MOBILE_FIRST]</span>
+        </div>
         <div class="service-icon-wrap">
           <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
         </div>
@@ -1628,10 +2406,14 @@
 
       <!-- 5 -->
       <div class="service-card">
+        <div class="service-card-meta">
+          <span>ID: 05 // OPTIMIZATION</span>
+          <span>[CORE_WEB_VITALS]</span>
+        </div>
         <div class="service-icon-wrap">
           <i class="fa-solid fa-wrench" aria-hidden="true"></i>
         </div>
-        <h3>Bug Fixing & Performance Optimization</h3>
+        <h3>Bug Fixing &amp; Performance Optimization</h3>
         <p>Diagnosing and resolving CSS/JS layout defects, fixing cross-browser compatibility issues, and boosting Core Web Vitals.</p>
       </div>
     </div>
@@ -1639,8 +2421,13 @@
 
   <!-- Technologies & Tools I Use -->
   <section class="section reveal" id="skills" aria-labelledby="skills-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 03. SYSTEM_STACK &amp; TOOLING</span>
+      <span class="kicker-spec">[STACK: MODERN_WEB_STANDARDS]</span>
+    </div>
+
     <h2 id="skills-heading" class="section-title">
-      <span>Tech Stack</span>Technologies & Tools I Use
+      <span>Tech Stack</span>Technologies &amp; Tools I Use
     </h2>
     <p class="section-lead">
       A carefully chosen stack of modern core web standards, powerful UI libraries, and accelerated developer tooling.
@@ -1666,7 +2453,7 @@
       <div class="skill-category">
         <div class="skill-category-header">
           <i class="fa-solid fa-cubes" aria-hidden="true"></i>
-          <h3>Frameworks & Libraries</h3>
+          <h3>Frameworks &amp; Libraries</h3>
         </div>
         <div class="skill-tag-list">
           <span class="skill-tag highlight"><i class="fa-brands fa-react" aria-hidden="true"></i> React</span>
@@ -1681,7 +2468,7 @@
       <div class="skill-category">
         <div class="skill-category-header">
           <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
-          <h3>Workflow & AI Tools</h3>
+          <h3>Workflow &amp; AI Tools</h3>
         </div>
         <div class="skill-tag-list">
           <span class="skill-tag highlight"><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git</span>
@@ -1696,6 +2483,11 @@
 
   <!-- Why Clients Like Working With Me -->
   <section class="section reveal" id="why-me" aria-labelledby="why-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 04. CLIENT_ASSURANCE &amp; VALUE</span>
+      <span class="kicker-spec">[RATING: TOP_TIER_COLLABORATION]</span>
+    </div>
+
     <h2 id="why-heading" class="section-title">
       <span>Value Proposition</span>Why Clients Like Working With Me
     </h2>
@@ -1714,7 +2506,7 @@
       <div class="why-me-card">
         <span class="why-step-num">02</span>
         <span class="why-icon">📐</span>
-        <h3>Pixel-Perfect & Responsive</h3>
+        <h3>Pixel-Perfect &amp; Responsive</h3>
         <p>Clean, organized, and standards-compliant code crafted to look sharp, render quickly, and behave seamlessly on any screen size.</p>
       </div>
 
@@ -1729,6 +2521,11 @@
 
   <!-- Experience Section -->
   <section class="section reveal" id="experience" aria-labelledby="experience-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 05. CAREER_TIMELINE.LOG</span>
+      <span class="kicker-spec">[BRANCH: PRODUCTION_DELIVERY]</span>
+    </div>
+
     <h2 id="experience-heading" class="section-title">
       <span>Career Journey</span>Work Experience
     </h2>
@@ -1843,6 +2640,11 @@
 
   <!-- Featured Projects -->
   <section class="section reveal" id="projects" aria-labelledby="projects-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 06. PRODUCTION_BUILDS &amp; REPOSITORIES</span>
+      <span class="kicker-spec">[STATUS: REPOSITORIES_LIVE // GITHUB_VERIFIED]</span>
+    </div>
+
     <h2 id="projects-heading" class="section-title">
       <span>Portfolio</span>Featured Projects
     </h2>
@@ -1952,6 +2754,11 @@
   <!-- Verified Credentials & Badges (Interactive Filter) -->
   <section class="section reveal" id="credentials" aria-labelledby="credentials-heading">
     <div class="credentials-wrap">
+      <div class="section-kicker-bar" style="margin-bottom: 1.25rem;">
+        <span class="kicker-tag">// 07. PROOF_OF_COMPETENCY &amp; BADGES</span>
+        <span class="kicker-spec">[INDEX: 39_VERIFIED // ZERO_EXCLUSIONS]</span>
+      </div>
+
       <h2 id="credentials-heading" class="section-title">
         <span>Proof of Expertise</span>Verified Credentials & Badges
       </h2>
@@ -2221,6 +3028,13 @@
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
   let dots = [];
+  let mousePos = { x: -1000, y: -1000 };
+  if (!prefersReducedMotion) {
+    window.addEventListener('mousemove', (e) => {
+      mousePos.x = e.clientX;
+      mousePos.y = e.clientY;
+    }, { passive: true });
+  }
 
   function initCanvas() {
     if (!canvas || !ctx) return;
@@ -2251,6 +3065,23 @@
           ctx.lineWidth = 0.6;
           ctx.moveTo(dots[i].x, dots[i].y);
           ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw links to mouse cursor
+    if (mousePos.x > 0 && mousePos.y > 0) {
+      for (let i = 0; i < dots.length; i++) {
+        const dx = dots[i].x - mousePos.x;
+        const dy = dots[i].y - mousePos.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 125) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(56, 189, 248, ${0.25 * (1 - dist / 125)})`;
+          ctx.lineWidth = 0.8;
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(mousePos.x, mousePos.y);
           ctx.stroke();
         }
       }
@@ -2463,7 +3294,268 @@
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
+
+  // --- High-Tech IDE Workbench Tabs & Copy ---
+  const ideTabs = document.querySelectorAll('.ide-tab');
+  const ideContents = document.querySelectorAll('.ide-content');
+  const copyIdeBtn = document.getElementById('copy-ide-btn');
+  const techToast = document.getElementById('tech-toast');
+  const techToastMsg = document.getElementById('tech-toast-msg');
+
+  function showToast(msg) {
+    if (!techToast || !techToastMsg) return;
+    techToastMsg.textContent = msg;
+    techToast.classList.add('show');
+    clearTimeout(window.__toastTimeout);
+    window.__toastTimeout = setTimeout(() => {
+      techToast.classList.remove('show');
+    }, 2800);
+  }
+
+  ideTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+      ideTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      ideContents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const activeContent = document.getElementById(`tab-${target}`);
+      if (activeContent) {
+        activeContent.classList.add('active');
+      }
+    });
+  });
+
+  if (copyIdeBtn) {
+    copyIdeBtn.addEventListener('click', () => {
+      const activeContent = document.querySelector('.ide-content.active pre code');
+      if (activeContent) {
+        const text = activeContent.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('IDE code copied to clipboard!');
+          const origIcon = copyIdeBtn.innerHTML;
+          copyIdeBtn.innerHTML = '<i class="fa-solid fa-check" style="color:#22c55e;"></i>';
+          setTimeout(() => {
+            copyIdeBtn.innerHTML = origIcon;
+          }, 2000);
+        }).catch(() => {
+          showToast('Failed to copy code');
+        });
+      }
+    });
+  }
+
+  // --- Dynamic Spotlight Cursor Tracking on Cards ---
+  const spotlightCards = document.querySelectorAll('.service-card, .project-card, .metric-card, .why-me-card, .skill-category, .cert-card');
+  spotlightCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // --- High-Tech Command Palette (⌘K / Ctrl+K) ---
+  const cmdBackdrop = document.getElementById('cmd-palette-backdrop');
+  const openCmdBtn = document.getElementById('open-cmd-btn');
+  const closeCmdBtn = document.getElementById('cmd-close-btn');
+  const cmdInput = document.getElementById('cmd-input');
+  const cmdItems = document.querySelectorAll('.cmd-item');
+  const cmdGroupTitles = document.querySelectorAll('.cmd-group-title');
+
+  function openCommandPalette() {
+    if (!cmdBackdrop) return;
+    cmdBackdrop.style.display = 'flex';
+    void cmdBackdrop.offsetWidth;
+    cmdBackdrop.classList.add('open');
+    if (cmdInput) {
+      cmdInput.value = '';
+      filterCmdItems('');
+      cmdInput.focus();
+    }
+  }
+
+  function closeCommandPalette() {
+    if (!cmdBackdrop) return;
+    cmdBackdrop.classList.remove('open');
+    setTimeout(() => {
+      if (!cmdBackdrop.classList.contains('open')) {
+        cmdBackdrop.style.display = 'none';
+      }
+    }, 250);
+  }
+
+  if (openCmdBtn) {
+    openCmdBtn.addEventListener('click', openCommandPalette);
+  }
+  if (closeCmdBtn) {
+    closeCmdBtn.addEventListener('click', closeCommandPalette);
+  }
+
+  if (cmdBackdrop) {
+    cmdBackdrop.addEventListener('click', (e) => {
+      if (e.target === cmdBackdrop) {
+        closeCommandPalette();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (cmdBackdrop && cmdBackdrop.classList.contains('open')) {
+        closeCommandPalette();
+      } else {
+        openCommandPalette();
+      }
+    } else if (e.key === 'Escape' && cmdBackdrop && cmdBackdrop.classList.contains('open')) {
+      closeCommandPalette();
+    }
+  });
+
+  function filterCmdItems(query) {
+    const q = query.toLowerCase().trim();
+    let visibleCount = 0;
+    cmdItems.forEach(item => {
+      const text = (item.textContent + ' ' + (item.getAttribute('data-keywords') || '')).toLowerCase();
+      if (!q || text.includes(q)) {
+        item.style.display = 'flex';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    cmdGroupTitles.forEach(title => {
+      let next = title.nextElementSibling;
+      let hasVisible = false;
+      while (next && !next.classList.contains('cmd-group-title')) {
+        if (next.classList.contains('cmd-item') && next.style.display !== 'none') {
+          hasVisible = true;
+          break;
+        }
+        next = next.nextElementSibling;
+      }
+      title.style.display = hasVisible ? 'block' : 'none';
+    });
+  }
+
+  if (cmdInput) {
+    cmdInput.addEventListener('input', (e) => {
+      filterCmdItems(e.target.value);
+    });
+
+    cmdInput.addEventListener('keydown', (e) => {
+      const visibleItems = Array.from(cmdItems).filter(item => item.style.display !== 'none');
+      if (!visibleItems.length) return;
+
+      const currentIndex = visibleItems.findIndex(item => item.classList.contains('selected'));
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % visibleItems.length;
+        visibleItems.forEach(i => i.classList.remove('selected'));
+        visibleItems[nextIndex].classList.add('selected');
+        visibleItems[nextIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+        visibleItems.forEach(i => i.classList.remove('selected'));
+        visibleItems[prevIndex].classList.add('selected');
+        visibleItems[prevIndex].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const selected = visibleItems[currentIndex >= 0 ? currentIndex : 0];
+        if (selected) {
+          selected.click();
+        }
+      }
+    });
+  }
+
+  cmdItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const href = item.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        closeCommandPalette();
+      }
+    });
+  });
+
+  const cmdEmailBtn = document.getElementById('cmd-action-email');
+  if (cmdEmailBtn) {
+    cmdEmailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('workuabraham68@gmail.com').then(() => {
+        closeCommandPalette();
+        showToast('Email copied: workuabraham68@gmail.com');
+      }).catch(() => {
+        closeCommandPalette();
+        showToast('workuabraham68@gmail.com');
+      });
+    });
+  }
+
+  const cmdCopyCodeBtn = document.getElementById('cmd-action-copy-code');
+  if (cmdCopyCodeBtn) {
+    cmdCopyCodeBtn.addEventListener('click', () => {
+      const activeContent = document.querySelector('.ide-content.active pre code');
+      if (activeContent) {
+        navigator.clipboard.writeText(activeContent.textContent).then(() => {
+          closeCommandPalette();
+          showToast('Active IDE code copied to clipboard!');
+        }).catch(() => {
+          closeCommandPalette();
+          showToast('Failed to copy code');
+        });
+      }
+    });
+  }
 </script>
+
+  <!-- High-Tech Command Palette Modal -->
+  <div class="cmd-palette-backdrop" id="cmd-palette-backdrop" role="dialog" aria-modal="true" aria-labelledby="cmd-input" style="display: none;">
+    <div class="cmd-palette-modal">
+      <div class="cmd-header">
+        <i class="fa-solid fa-terminal cmd-icon" aria-hidden="true"></i>
+        <input type="text" id="cmd-input" placeholder="Type a command or jump to section... (e.g. 'skills', 'upwork', 'copy')" autocomplete="off" spellcheck="false" aria-label="Command search">
+        <span class="cmd-esc" id="cmd-close-btn">ESC</span>
+      </div>
+      <div class="cmd-list" id="cmd-list">
+        <div class="cmd-group-title">NAVIGATION / JUMP</div>
+        <a href="#about" class="cmd-item" data-keywords="about developer engineer bio profile ide"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About Abraham &amp; IDE Workbench</span><span class="cmd-badge">#about</span></a>
+        <a href="#services" class="cmd-item" data-keywords="services capabilities architecture frontend"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Services &amp; Capabilities</span><span class="cmd-badge">#services</span></a>
+        <a href="#skills" class="cmd-item" data-keywords="tech stack tools libraries react css tailwind javascript"><i class="fa-solid fa-code" aria-hidden="true"></i><span>Tech Stack &amp; Tools</span><span class="cmd-badge">#skills</span></a>
+        <a href="#why-me" class="cmd-item" data-keywords="why me value fast delivery pixel perfect communication"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Why Clients Work With Me</span><span class="cmd-badge">#why-me</span></a>
+        <a href="#experience" class="cmd-item" data-keywords="work experience history career freelance habiye academy codealpha"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Work Experience Timeline</span><span class="cmd-badge">#experience</span></a>
+        <a href="#projects" class="cmd-item" data-keywords="featured projects habiye goraw askdocs sentimentscope portfolio"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i><span>Featured Projects</span><span class="cmd-badge">#projects</span></a>
+        <a href="#credentials" class="cmd-item" data-keywords="verified credentials badges certificates cisco ibm oreilly mongodb udacity"><i class="fa-solid fa-award" aria-hidden="true"></i><span>Verified Credentials (39)</span><span class="cmd-badge">#credentials</span></a>
+
+        <div class="cmd-group-title">ACTIONS &amp; WORKSPACE</div>
+        <a href="javascript:void(0)" class="cmd-item highlight" id="cmd-action-email" data-keywords="copy email contact workuabraham68@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Copy Email Address (workuabraham68@gmail.com)</span><span class="cmd-badge">COPY</span></a>
+        <a href="javascript:void(0)" class="cmd-item highlight" id="cmd-action-copy-code" data-keywords="copy developer config ts code"><i class="fa-solid fa-copy" aria-hidden="true"></i><span>Copy IDE Active Code</span><span class="cmd-badge">COPY</span></a>
+        <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="upwork hire profile contract freelance"><i class="fa-brands fa-upwork" aria-hidden="true"></i><span>Hire on Upwork</span><span class="cmd-badge">EXT ↗</span></a>
+        <a href="https://github.com/Abrahamwgs" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="github repositories code source repos"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub Repositories</span><span class="cmd-badge">EXT ↗</span></a>
+        <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="linkedin profile network connect"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn Profile</span><span class="cmd-badge">EXT ↗</span></a>
+      </div>
+      <div class="cmd-footer">
+        <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> navigate</span>
+        <span><kbd>ENTER</kbd> select</span>
+        <span><kbd>ESC</kbd> dismiss</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Toast Notification -->
+  <div class="tech-toast" id="tech-toast" role="status" aria-live="polite">
+    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    <span id="tech-toast-msg">Copied to clipboard</span>
+  </div>
 
 </body>
 </html>
