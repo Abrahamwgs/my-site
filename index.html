@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Abraham Worku | Front-End Web Developer</title>
   <meta name="description" content="Abraham Worku — Front-End Web Developer specializing in clean, modern, and high-performance websites. HTML5, CSS3, JavaScript, React, Tailwind CSS, and AI-accelerated workflows. Available on Upwork." />
   <meta name="theme-color" content="#030712" />
@@ -73,6 +73,7 @@
       scroll-behavior: smooth; 
       scroll-padding-top: 85px;
       -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -87,7 +88,7 @@
         linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
       color: var(--text);
-      overflow-x: hidden;
+      overflow-x: clip;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -131,11 +132,25 @@
       width: 100%;
       top: 0;
       left: 0;
+      right: 0;
       z-index: 1000;
       display: flex;
       justify-content: center;
       pointer-events: none;
-      transition: all 0.3s ease;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform;
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    header.scrolled {
+      background: rgba(3, 7, 18, 0.78);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
     }
 
     .nav-container {
@@ -150,7 +165,7 @@
       flex-wrap: nowrap;
       white-space: nowrap;
       gap: 12px;
-      background: rgba(11, 15, 25, 0.82);
+      background: rgba(11, 15, 25, 0.88);
       backdrop-filter: blur(24px) saturate(1.4);
       -webkit-backdrop-filter: blur(24px) saturate(1.4);
       padding: 0 8px 0 16px;
@@ -158,6 +173,8 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.03);
       position: relative;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     .brand-wrap {
@@ -751,10 +768,6 @@
       max-width: 1100px;
       margin: 0 auto;
       scroll-margin-top: 85px;
-    }
-    .section:not(.hero) {
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 700px;
     }
 
     .section-kicker-bar {
@@ -1778,6 +1791,10 @@
         grid-template-columns: 1fr;
         gap: 32px;
       }
+      header {
+        padding: 8px 14px;
+        padding-top: max(8px, env(safe-area-inset-top));
+      }
       .section-kicker-bar {
         flex-direction: column;
         align-items: flex-start;
@@ -1787,8 +1804,8 @@
 
     @media (max-width: 640px) {
       header {
-        padding: 10px 12px;
-        padding-top: max(10px, env(safe-area-inset-top));
+        padding: 8px 12px;
+        padding-top: max(8px, env(safe-area-inset-top));
       }
       .nav-container {
         padding: 0 6px 0 12px;
@@ -3413,6 +3430,22 @@
         spyTicking = true;
       }
     }, { passive: true });
+  }
+
+  // Dynamic Scrolled State for Header (Smooth Glass Anchor on Scroll)
+  const siteHeader = document.querySelector('header');
+  if (siteHeader) {
+    let headerTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!headerTicking) {
+        requestAnimationFrame(() => {
+          siteHeader.classList.toggle('scrolled', window.pageYOffset > 10);
+          headerTicking = false;
+        });
+        headerTicking = true;
+      }
+    }, { passive: true });
+    siteHeader.classList.toggle('scrolled', window.pageYOffset > 10);
   }
 
   // --- High-Tech IDE Workbench Tabs & Copy ---
