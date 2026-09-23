@@ -142,15 +142,6 @@
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       will-change: transform;
-      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    header.scrolled {
-      background: rgba(3, 7, 18, 0.78);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
     }
 
     .nav-container {
@@ -175,6 +166,8 @@
       position: relative;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     .brand-wrap {
@@ -1792,8 +1785,8 @@
         gap: 32px;
       }
       header {
-        padding: 8px 14px;
-        padding-top: max(8px, env(safe-area-inset-top));
+        padding: 12px 16px;
+        padding-top: max(12px, env(safe-area-inset-top));
       }
       .section-kicker-bar {
         flex-direction: column;
@@ -1804,8 +1797,8 @@
 
     @media (max-width: 640px) {
       header {
-        padding: 8px 12px;
-        padding-top: max(8px, env(safe-area-inset-top));
+        padding: 10px 12px;
+        padding-top: max(10px, env(safe-area-inset-top));
       }
       .nav-container {
         padding: 0 6px 0 12px;
@@ -3432,21 +3425,6 @@
     }, { passive: true });
   }
 
-  // Dynamic Scrolled State for Header (Smooth Glass Anchor on Scroll)
-  const siteHeader = document.querySelector('header');
-  if (siteHeader) {
-    let headerTicking = false;
-    window.addEventListener('scroll', () => {
-      if (!headerTicking) {
-        requestAnimationFrame(() => {
-          siteHeader.classList.toggle('scrolled', window.pageYOffset > 10);
-          headerTicking = false;
-        });
-        headerTicking = true;
-      }
-    }, { passive: true });
-    siteHeader.classList.toggle('scrolled', window.pageYOffset > 10);
-  }
 
   // --- High-Tech IDE Workbench Tabs & Copy ---
   const ideTabs = document.querySelectorAll('.ide-tab');
