@@ -64,11 +64,15 @@
       --font-mono: 'JetBrains Mono', monospace;
     }
 
-    * { box-sizing: border-box; }
+    * { 
+      box-sizing: border-box; 
+      -webkit-tap-highlight-color: transparent;
+    }
 
     html { 
       scroll-behavior: smooth; 
       scroll-padding-top: 85px;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
@@ -76,9 +80,6 @@
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.13), transparent 45%),
-        radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 35%),
-        radial-gradient(circle at 15% 65%, rgba(20, 168, 0, 0.06), transparent 35%);
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.18), transparent 48%),
         radial-gradient(circle at 88% 28%, rgba(129, 140, 248, 0.12), transparent 42%),
         radial-gradient(circle at 12% 65%, rgba(20, 168, 0, 0.08), transparent 42%),
@@ -89,6 +90,11 @@
       overflow-x: hidden;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    button, a, input, [role="button"], .filter-btn, .ide-tab, .nav-cmd-btn, .nav-toggle {
+      touch-action: manipulation;
     }
 
     /* Ambient Background Canvas */
@@ -746,6 +752,10 @@
       margin: 0 auto;
       scroll-margin-top: 85px;
     }
+    .section:not(.hero) {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 700px;
+    }
 
     .section-kicker-bar {
       display: flex;
@@ -916,7 +926,12 @@
       display: flex;
       gap: 4px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+    .ide-tabs::-webkit-scrollbar {
+      display: none;
     }
     .ide-tab {
       background: transparent;
@@ -931,6 +946,7 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
+      scroll-snap-align: start;
       transition: all 0.2s ease;
     }
     .ide-tab:hover {
@@ -1721,30 +1737,36 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 4px;
-        background: rgba(11, 15, 25, 0.95);
+        gap: 5px;
+        background: rgba(11, 15, 25, 0.96);
         backdrop-filter: blur(28px) saturate(1.4);
         -webkit-backdrop-filter: blur(28px) saturate(1.4);
-        padding: 12px;
+        padding: 14px;
         border-radius: 20px;
         border: 1px solid var(--border);
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05);
         opacity: 0;
         pointer-events: none;
-        transform: translateY(-8px);
-        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(-8px) scale(0.98);
+        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 1001;
+        will-change: opacity, transform;
       }
       .nav-links.open {
         opacity: 1;
         pointer-events: auto;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
       .nav-links a {
-        padding: 10px 14px;
-        font-size: 0.88rem;
+        padding: 11px 16px;
+        font-size: 0.9rem;
         border-radius: 12px;
         justify-content: flex-start;
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      }
+      .nav-links a:active {
+        background: rgba(56, 189, 248, 0.12);
+        transform: scale(0.98);
       }
       .hero {
         padding-top: 130px;
@@ -1766,6 +1788,7 @@
     @media (max-width: 640px) {
       header {
         padding: 10px 12px;
+        padding-top: max(10px, env(safe-area-inset-top));
       }
       .nav-container {
         padding: 0 6px 0 12px;
@@ -1825,11 +1848,37 @@
         gap: 10px;
       }
       .cert-filter-bar {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 6px;
+        margin-bottom: 1.25rem;
         gap: 8px;
+        scroll-snap-type: x proximity;
+      }
+      .cert-filter-bar::-webkit-scrollbar {
+        display: none;
       }
       .filter-btn {
+        flex-shrink: 0;
         font-size: 0.76rem;
-        padding: 6px 12px;
+        padding: 6px 14px;
+        scroll-snap-align: start;
+        white-space: nowrap;
+      }
+      .cmd-palette-backdrop {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        align-items: center;
+      }
+      .cmd-palette-modal {
+        width: calc(100% - 20px);
+        max-height: 85vh;
+      }
+      .cmd-list {
+        max-height: 52vh;
       }
     }
 
@@ -1856,6 +1905,13 @@
       }
       .btn-group {
         width: 100%;
+      }
+    }
+
+    @media (hover: none) {
+      .btn:active, .filter-btn:active, .ide-tab:active, .nav-cmd-btn:active, .cmd-item:active, .nav-upwork-btn:active {
+        transform: scale(0.97);
+        transition: transform 0.08s ease;
       }
     }
 
@@ -2792,19 +2848,19 @@
           <h3 class="cert-group-title">Front-End & Modern Web Architecture</h3>
         </div>
         <div class="cert-links">
-          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/web-development-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/f5eb162b-2abb-4634-ba03-8e76a4ec2654" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-code" aria-hidden="true"></i> Web Development Fundamentals</span>
             <span class="cert-tag-issuer">IBM SkillsBuild</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/intro-to-react" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/8f0010d8-27a1-4d8d-b6d5-cb0ca12b5d51" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-brands fa-react" aria-hidden="true"></i> Intro to React</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/chatgpt-guide-react" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/7bc519b4-c606-475a-9710-906ba79e856f" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-brands fa-react" aria-hidden="true"></i> ChatGPT Guide: React</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/learning-vue-js-2-0" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/359b50a8-1efb-4ae1-9574-6ddd8259591e" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-brands fa-vuejs" aria-hidden="true"></i> Learning Vue.js 2.0</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
@@ -2812,7 +2868,7 @@
             <span class="cert-tag-title"><i class="fa-brands fa-html5" aria-hidden="true"></i> Mastering HTML5</span>
             <span class="cert-tag-issuer">Udemy</span>
           </a>
-          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/enterprise-design-thinking-practitioner.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/64e9b586-8ca4-4f8c-a61b-2a5324623f6b" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Enterprise Design Thinking</span>
             <span class="cert-tag-issuer">IBM</span>
           </a>
@@ -2826,59 +2882,59 @@
           <h3 class="cert-group-title">AI Engineering, Cursor AI & Agentic Workflows</h3>
         </div>
         <div class="cert-links">
-          <a href="https://www.credly.com/org/cisco/badge/prompt-like-an-engineer" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/eb7168aa-3f16-4160-ad7c-22ac0e6e2f8d" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Prompt Like an Engineer</span>
             <span class="cert-tag-issuer">Cisco</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-first-full-stack-dev-course" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/75af6101-a73b-47e8-9736-fd987087936f" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> AI-First Full-Stack Dev</span>
             <span class="cert-tag-issuer">O'Reilly / Packt</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/vibe-coding-with-cursor-ai" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/5d286a21-c8f8-4003-85bd-b3e5b7ad1885" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Vibe Coding with Cursor AI</span>
             <span class="cert-tag-issuer">O'Reilly / Packt</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-with-langgraph.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/7dd1882a-6ad0-4464-9285-a333d38b7ffa" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> AI Agents with LangGraph</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-and-context-eng" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/0020c04a-71c8-46bc-8d7e-f739cbf04657" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-brain" aria-hidden="true"></i> AI Agents & Context Eng</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/ai-agents-core-components" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/60d1da08-a5db-4cc8-b331-fc088dfb9ea2" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-microchip" aria-hidden="true"></i> AI Agents Core Components</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/engineer-model-interaction" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/382b7613-efac-4d76-887f-cc273b6ea5bc" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Engineer Model Interaction</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/task-decomposition" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/a12b2c44-23db-41da-9d72-91875601d2d6" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Task Decomposition</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/build-your-own-ai-lab" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/46891a1e-6143-497a-a7a2-16f5b651855f" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-flask" aria-hidden="true"></i> Build Your Own AI Lab</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/chatgpt-and-copilot-in-4-hours" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/d9a8b3d5-eb1f-4791-bfaf-58476ef688c9" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-comments" aria-hidden="true"></i> ChatGPT & Copilot</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/effective-chatgpt-prompts" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/74bf2fa4-5723-4944-a99f-591330874a3d" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Effective ChatGPT Prompts</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/how-llms-work" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/83d4e98a-a86d-4226-9dbb-d033a99ea047" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-gears" aria-hidden="true"></i> How LLMs Work</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/genai-essentials-for-everyone" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/b7cfa8fe-b21f-4c4d-a8b9-0d0580b60466" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> GenAI Essentials</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/artificial-intelligence-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/5fc3edf1-961d-4d68-b820-4dd562a4110b" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> AI Fundamentals</span>
             <span class="cert-tag-issuer">IBM SkillsBuild</span>
           </a>
@@ -2900,35 +2956,35 @@
           <h3 class="cert-group-title">Data, Databases & Vector Search</h3>
         </div>
         <div class="cert-links">
-          <a href="https://www.credly.com/org/mongodb/badge/building-ai-agents-with-mongodb" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/01f40add-cb06-454e-b4e6-9b9f3459dfb3" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-server" aria-hidden="true"></i> Building AI Agents</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/building-ai-powered-search-with-mongodb-vector-sear.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/2afe5cad-003d-49c7-9e95-a76b8f44884a" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> AI Vector Search</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/memory-for-ai-applications-with-mongodb" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/3be1fd98-0195-4261-a100-2e1b5e431485" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-memory" aria-hidden="true"></i> Memory for AI Applications</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/ai-and-innovation-how-mongodb-enables-a-resilient-a" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/c18527c2-71e3-46ef-b8d4-77836bfd326e" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> AI & Innovation Strategy</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/mongodb-query-optimization-techniques" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/e617c6e0-0be7-43e1-bfb8-87335756e7da" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Query Optimization</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/crud-operations-in-mongodb.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/2ba7ccd7-aaf4-4977-92e9-663089d08ac6" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-table" aria-hidden="true"></i> CRUD Operations</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/mongodb/badge/mongodb-overview-core-concepts-and-architecture" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/f8807f3c-063a-4589-aa7e-912be9d5ce84" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i> MongoDB Core Concepts</span>
             <span class="cert-tag-issuer">MongoDB</span>
           </a>
-          <a href="https://www.credly.com/org/ibm-skillsbuild/badge/data-fundamentals" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/f94e70d1-151e-488f-a256-3032a5f438dc" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Data Fundamentals</span>
             <span class="cert-tag-issuer">IBM SkillsBuild</span>
           </a>
@@ -2946,7 +3002,7 @@
           <h3 class="cert-group-title">Languages, Mobile & Foundations</h3>
         </div>
         <div class="cert-links">
-          <a href="https://www.credly.com/org/cisco/badge/python-essentials-1.1" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/5feb315f-55f4-444f-9e3a-2685117e4709" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Essentials 1</span>
             <span class="cert-tag-issuer">Cisco</span>
           </a>
@@ -2954,15 +3010,15 @@
             <span class="cert-tag-title"><i class="fa-brands fa-android" aria-hidden="true"></i> Android Fundamentals</span>
             <span class="cert-tag-issuer">Udacity</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/android-app-dev-livelessons" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/9f8d8067-6ade-4c31-ae60-21f9d0d6c212" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-mobile" aria-hidden="true"></i> Android App Dev Lessons</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/simple-chat-app-in-android" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/4565d259-4218-4944-8a14-00655205dd9c" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-comment" aria-hidden="true"></i> Android Chat App</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
-          <a href="https://www.credly.com/org/o-reilly-media/badge/create-meme-generator-app" target="_blank" rel="noopener noreferrer" class="cert-tag">
+          <a href="https://www.credly.com/badges/b0e11435-3945-434c-b0bd-ca574aced48f" target="_blank" rel="noopener noreferrer" class="cert-tag">
             <span class="cert-tag-title"><i class="fa-solid fa-image" aria-hidden="true"></i> Meme Generator App</span>
             <span class="cert-tag-issuer">O'Reilly</span>
           </a>
@@ -3023,24 +3079,36 @@
 </footer>
 
 <script>
-  // Canvas Particle System
+  // Canvas Particle System (Mobile-Optimized)
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
   let dots = [];
   let mousePos = { x: -1000, y: -1000 };
-  if (!prefersReducedMotion) {
+  let isCanvasActive = true;
+
+  if (!prefersReducedMotion && hasFinePointer) {
     window.addEventListener('mousemove', (e) => {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
     }, { passive: true });
   }
 
+  document.addEventListener('visibilitychange', () => {
+    isCanvasActive = !document.hidden;
+    if (isCanvasActive && !prefersReducedMotion && canvas) {
+      requestAnimationFrame(drawCanvas);
+    }
+  });
+
   function initCanvas() {
     if (!canvas || !ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    dots = Array.from({ length: 65 }, () => ({
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 22 : 60;
+    dots = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.35,
@@ -3050,7 +3118,7 @@
   }
 
   function drawCanvas() {
-    if (!canvas || !ctx) return;
+    if (!canvas || !ctx || !isCanvasActive) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // Draw links between nearby dots
@@ -3199,6 +3267,10 @@
       btn.classList.add('active');
       const filter = btn.getAttribute('data-filter');
 
+      if (window.innerWidth <= 640) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
       certGroups.forEach(group => {
         if (filter === 'all' || group.getAttribute('data-category') === filter) {
           group.style.display = 'block';
@@ -3209,49 +3281,59 @@
     });
   });
 
-  // Scroll Reveal Animations
-  function revealOnScroll() {
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 60) {
-        el.classList.add('active');
-      }
-    });
-  }
-
-  if (prefersReducedMotion) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+  // Scroll Reveal Animations via IntersectionObserver (High Performance, Zero Layout Thrashing)
+  const revealElements = document.querySelectorAll('.reveal');
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('active'));
   } else {
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    revealOnScroll();
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // Mobile Nav Toggle & Single Row Interactions
+  // Mobile Nav Toggle & Body Scroll Locking
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = navLinks.classList.toggle('open');
+    function setNavState(isOpen) {
+      navLinks.classList.toggle('open', isOpen);
       navToggle.classList.toggle('open', isOpen);
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (window.innerWidth <= 840) {
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+    }
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !navLinks.classList.contains('open');
+      setNavState(isOpen);
     });
 
     // Close on click outside
     document.addEventListener('click', (e) => {
       if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        if (navLinks.classList.contains('open')) {
+          setNavState(false);
+        }
       }
     });
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        setNavState(false);
         navToggle.focus();
       }
     });
@@ -3259,32 +3341,26 @@
     // Close dropdown on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        setNavState(false);
       });
     });
+
+    // Clean up body overflow on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 840 && document.body.style.overflow === 'hidden') {
+        document.body.style.overflow = '';
+      }
+    }, { passive: true });
   }
 
-  // Active Nav Scrollspy
+  // Active Nav Scrollspy via IntersectionObserver
   const spySections = document.querySelectorAll('section[id]');
   const spyLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
-  function updateActiveNav() {
-    const scrollPos = window.pageYOffset + 140;
-    let currentSectionId = '';
-
-    spySections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        currentSectionId = section.getAttribute('id');
-      }
-    });
-
+  function setActiveNavLink(currentId) {
     spyLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === `#${currentSectionId}`) {
+      if (href === `#${currentId}`) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -3292,8 +3368,52 @@
     });
   }
 
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-  updateActiveNav();
+  if ('IntersectionObserver' in window) {
+    const visibleSections = new Map();
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visibleSections.set(entry.target.getAttribute('id'), entry.intersectionRatio);
+        } else {
+          visibleSections.delete(entry.target.getAttribute('id'));
+        }
+      });
+      if (visibleSections.size > 0) {
+        let bestId = '';
+        let highestRatio = -1;
+        visibleSections.forEach((ratio, id) => {
+          if (ratio > highestRatio) {
+            highestRatio = ratio;
+            bestId = id;
+          }
+        });
+        if (bestId) setActiveNavLink(bestId);
+      }
+    }, {
+      rootMargin: '-15% 0px -40% 0px',
+      threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    });
+
+    spySections.forEach(sec => navObserver.observe(sec));
+  } else {
+    let spyTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!spyTicking) {
+        requestAnimationFrame(() => {
+          const scrollPos = window.pageYOffset + 140;
+          let currentSectionId = '';
+          spySections.forEach(section => {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+              currentSectionId = section.getAttribute('id');
+            }
+          });
+          if (currentSectionId) setActiveNavLink(currentSectionId);
+          spyTicking = false;
+        });
+        spyTicking = true;
+      }
+    }, { passive: true });
+  }
 
   // --- High-Tech IDE Workbench Tabs & Copy ---
   const ideTabs = document.querySelectorAll('.ide-tab');
@@ -3323,6 +3443,9 @@
 
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
+      if (window.innerWidth <= 640) {
+        tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
       const activeContent = document.getElementById(`tab-${target}`);
       if (activeContent) {
         activeContent.classList.add('active');
@@ -3349,17 +3472,19 @@
     });
   }
 
-  // --- Dynamic Spotlight Cursor Tracking on Cards ---
-  const spotlightCards = document.querySelectorAll('.service-card, .project-card, .metric-card, .why-me-card, .skill-category, .cert-card');
-  spotlightCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+  // --- Dynamic Spotlight Cursor Tracking on Cards (Desktop Fine Pointer Only) ---
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const spotlightCards = document.querySelectorAll('.service-card, .project-card, .why-me-card, .timeline-content, .skill-category');
+    spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }, { passive: true });
     });
-  });
+  }
 
   // --- High-Tech Command Palette (⌘K / Ctrl+K) ---
   const cmdBackdrop = document.getElementById('cmd-palette-backdrop');
@@ -3374,6 +3499,7 @@
     cmdBackdrop.style.display = 'flex';
     void cmdBackdrop.offsetWidth;
     cmdBackdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
     if (cmdInput) {
       cmdInput.value = '';
       filterCmdItems('');
@@ -3384,6 +3510,7 @@
   function closeCommandPalette() {
     if (!cmdBackdrop) return;
     cmdBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
     setTimeout(() => {
       if (!cmdBackdrop.classList.contains('open')) {
         cmdBackdrop.style.display = 'none';
@@ -3541,6 +3668,7 @@
         <a href="javascript:void(0)" class="cmd-item highlight" id="cmd-action-copy-code" data-keywords="copy developer config ts code"><i class="fa-solid fa-copy" aria-hidden="true"></i><span>Copy IDE Active Code</span><span class="cmd-badge">COPY</span></a>
         <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="upwork hire profile contract freelance"><i class="fa-brands fa-upwork" aria-hidden="true"></i><span>Hire on Upwork</span><span class="cmd-badge">EXT ↗</span></a>
         <a href="https://github.com/Abrahamwgs" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="github repositories code source repos"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub Repositories</span><span class="cmd-badge">EXT ↗</span></a>
+        <a href="https://www.credly.com/users/abraham-worku.1b641880" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="credly profile badges verified certificates earner"><i class="fa-solid fa-certificate" aria-hidden="true"></i><span>Credly Verified Earner Profile</span><span class="cmd-badge">EXT ↗</span></a>
         <a href="https://www.linkedin.com/in/abraham-worku-286339231" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="linkedin profile network connect"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn Profile</span><span class="cmd-badge">EXT ↗</span></a>
       </div>
       <div class="cmd-footer">
