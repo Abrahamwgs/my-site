@@ -2254,6 +2254,164 @@
       margin-bottom: 0.75rem;
       letter-spacing: 0.06em;
     }
+
+    /* Curriculum Vitae (CV) Section */
+    .cv-card {
+      padding: clamp(1.8rem, 4vw, 2.75rem);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+    .cv-content-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: clamp(1.5rem, 3.5vw, 2.75rem);
+      align-items: stretch;
+    }
+    .cv-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cv-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--primary-dim);
+      border: 1px solid var(--primary-border);
+      margin-bottom: 1.1rem;
+      align-self: flex-start;
+    }
+    .cv-title {
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.35rem;
+    }
+    .cv-subtitle {
+      font-size: 0.95rem;
+      color: #7dd3fc;
+      margin: 0 0 1rem;
+      font-weight: 500;
+    }
+    .cv-desc {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .cv-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 1.75rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      border-radius: var(--radius);
+    }
+    .cv-highlight-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+    .cv-check {
+      color: #22c55e;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .cv-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cv-preview-box {
+      background: #060912;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      min-height: 440px;
+    }
+    .cv-preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: #0a0f1d;
+      border-bottom: 1px solid var(--border);
+    }
+    .cv-preview-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .cv-preview-filename {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .cv-preview-popout {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .cv-preview-popout:hover {
+      color: var(--primary);
+    }
+    .cv-iframe-container {
+      width: 100%;
+      flex: 1;
+      min-height: 400px;
+      background: #111827;
+      position: relative;
+    }
+    .cv-iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .cv-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .cv-preview-box {
+        min-height: 380px;
+      }
+      .cv-iframe-container {
+        min-height: 340px;
+      }
+      .cv-iframe-container iframe {
+        min-height: 340px;
+      }
+    }
+    @media (max-width: 640px) {
+      .cv-preview-box {
+        min-height: 300px;
+      }
+      .cv-iframe-container {
+        min-height: 260px;
+      }
+      .cv-iframe-container iframe {
+        min-height: 260px;
+      }
+    }
   </style>
 
   <!-- Schema.org Structured Data -->
@@ -2314,6 +2472,7 @@
       <a href="#experience"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Experience</a>
       <a href="#projects"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Projects</a>
       <a href="#credentials"><i class="fa-solid fa-award" aria-hidden="true"></i> Badges</a>
+      <a href="#cv"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> CV</a>
     </nav>
     <div class="nav-actions">
       <button class="nav-cmd-btn" id="open-cmd-btn" aria-label="Open Command Palette" title="Command Palette (⌘K / Ctrl+K)">
@@ -2391,6 +2550,9 @@
       </a>
       <a href="#projects" class="btn btn-primary">
         <i class="fa-solid fa-arrow-down" aria-hidden="true"></i> View Featured Projects
+      </a>
+      <a href="#cv" class="btn btn-outline">
+        <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> View CV (PDF)
       </a>
       <a href="https://github.com/abrahamwgs" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
         <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
@@ -3293,6 +3455,88 @@
     </div>
   </section>
 
+  <!-- Curriculum Vitae (CV) Section -->
+  <section class="section reveal" id="cv" aria-labelledby="cv-heading">
+    <div class="section-kicker-bar">
+      <span class="kicker-tag">// 08. CURRICULUM_VITAE &amp; RESUME</span>
+      <span class="kicker-spec">[FORMAT: OFFICIAL_PDF // VERIFIED]</span>
+    </div>
+
+    <h2 id="cv-heading" class="section-title">
+      <span>Official Documentation</span>Curriculum Vitae &amp; Resume
+    </h2>
+    <p class="section-lead">
+      Download or preview my verified Curriculum Vitae detailing front-end engineering, full-stack systems, verified credentials, and technical background.
+    </p>
+
+    <div class="cv-card card">
+      <div class="card-crosshair tl">+</div>
+      <div class="card-crosshair tr">+</div>
+      <div class="card-crosshair bl">+</div>
+      <div class="card-crosshair br">+</div>
+
+      <div class="cv-content-grid">
+        <div class="cv-info">
+          <div class="cv-meta-pill">
+            <span class="status-dot"></span>
+            <span>OFFICIAL CV // VERIFIED RELEASE // 270 KB</span>
+          </div>
+          <h3 class="cv-title">Abraham Worku Gebreselassie</h3>
+          <p class="cv-subtitle">Front-End Web Developer &bull; IT Support Specialist</p>
+
+          <p class="cv-desc">
+            Complete curriculum vitae featuring verified engineering experience, modern web stacks (HTML5, CSS3, JavaScript, React, Tailwind CSS), AI-accelerated workflows, production projects, and 52 verified credentials.
+          </p>
+
+          <div class="cv-highlights">
+            <div class="cv-highlight-item">
+              <i class="fa-solid fa-check cv-check" aria-hidden="true"></i>
+              <span><strong>Professional Experience:</strong> Website Developer, Freelance Front-End, Habiye Academy, Software Installation</span>
+            </div>
+            <div class="cv-highlight-item">
+              <i class="fa-solid fa-check cv-check" aria-hidden="true"></i>
+              <span><strong>Verified Badges:</strong> 52 credentials across Coursera, Johns Hopkins, Cisco, IBM, Meta, Scrimba &amp; MongoDB</span>
+            </div>
+            <div class="cv-highlight-item">
+              <i class="fa-solid fa-check cv-check" aria-hidden="true"></i>
+              <span><strong>Core Disciplines:</strong> Responsive Web Architecture, Performance, IT Support &amp; System Maintenance</span>
+            </div>
+          </div>
+
+          <div class="cv-actions">
+            <a href="Abraham-Worku-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open CV in New Tab
+            </a>
+            <a href="Abraham-Worku-CV.pdf" download="Abraham-Worku-CV.pdf" class="btn btn-outline">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-preview-box">
+          <div class="cv-preview-header">
+            <div class="cv-preview-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="cv-preview-filename">Abraham-Worku-CV.pdf</span>
+            <a href="Abraham-Worku-CV.pdf" target="_blank" rel="noopener noreferrer" class="cv-preview-popout" title="Open full screen" aria-label="Open PDF full screen">
+              <i class="fa-solid fa-expand" aria-hidden="true"></i> Full Screen
+            </a>
+          </div>
+          <div class="cv-iframe-container">
+            <iframe src="Abraham-Worku-CV.pdf#toolbar=0&navpanes=0&scrollbar=1" title="Abraham Worku CV PDF Preview" loading="lazy">
+              <p style="padding: 20px; color: var(--muted); text-align: center;">
+                Your browser does not support inline PDF viewing. <a href="Abraham-Worku-CV.pdf" target="_blank" style="color: var(--primary); text-decoration: underline;">Click here to view or download the CV PDF</a>.
+              </p>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Ready to Build / Hire CTA Banner -->
   <section class="section reveal" aria-labelledby="cta-heading">
     <div class="cta-banner">
@@ -3917,8 +4161,10 @@
         <a href="#experience" class="cmd-item" data-keywords="work experience history career freelance habiye academy codealpha"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Work Experience Timeline</span><span class="cmd-badge">#experience</span></a>
         <a href="#projects" class="cmd-item" data-keywords="featured projects habiye goraw askdocs sentimentscope portfolio"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i><span>Featured Projects</span><span class="cmd-badge">#projects</span></a>
         <a href="#credentials" class="cmd-item" data-keywords="verified credentials badges certificates cisco ibm meta scrimba oreilly mongodb coursera anthropic udacity udemy"><i class="fa-solid fa-award" aria-hidden="true"></i><span>Verified Credentials (52)</span><span class="cmd-badge">#credentials</span></a>
+        <a href="#cv" class="cmd-item" data-keywords="cv resume curriculum vitae official document pdf abraham worku profile"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>Curriculum Vitae &amp; Resume (PDF)</span><span class="cmd-badge">#cv</span></a>
 
         <div class="cmd-group-title">ACTIONS &amp; WORKSPACE</div>
+        <a href="Abraham-Worku-CV.pdf" target="_blank" rel="noopener noreferrer" class="cmd-item highlight" data-keywords="cv resume pdf download open curriculum vitae official document"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>Open Official CV (PDF)</span><span class="cmd-badge">PDF ↗</span></a>
         <a href="javascript:void(0)" class="cmd-item highlight" id="cmd-action-email" data-keywords="copy email contact workuabraham68@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Copy Email Address (workuabraham68@gmail.com)</span><span class="cmd-badge">COPY</span></a>
         <a href="javascript:void(0)" class="cmd-item highlight" id="cmd-action-copy-code" data-keywords="copy developer config ts code"><i class="fa-solid fa-copy" aria-hidden="true"></i><span>Copy IDE Active Code</span><span class="cmd-badge">COPY</span></a>
         <a href="https://www.upwork.com/freelancers/~01ae0d1ace8d1442d3" target="_blank" rel="noopener noreferrer" class="cmd-item" data-keywords="upwork hire profile contract freelance"><i class="fa-brands fa-upwork" aria-hidden="true"></i><span>Hire on Upwork</span><span class="cmd-badge">EXT ↗</span></a>

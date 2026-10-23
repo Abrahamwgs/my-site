@@ -20,8 +20,9 @@ Comprehensive architectural and implementation guide for the personal portfolio 
    - [Work Experience Timeline](#9-work-experience-timeline)
    - [Featured Projects](#10-featured-projects)
    - [Verified Credentials & Badges (52 Badges)](#11-verified-credentials--badges-52-badges)
-   - [Call to Action (CTA) & Footer](#12-call-to-action-cta--footer)
-   - [Command Palette Modal & Toast Notifications](#13-command-palette-modal--toast-notifications)
+   - [Curriculum Vitae (CV) Section](#12-curriculum-vitae-cv-section)
+   - [Call to Action (CTA) & Footer](#13-call-to-action-cta--footer)
+   - [Command Palette Modal & Toast Notifications](#14-command-palette-modal--toast-notifications)
 5. [CSS Architecture & Design System](#-css-architecture--design-system)
    - [Design Tokens & Variables (`:root`)](#1-design-tokens--variables-root)
    - [Cyberpunk & Telemetry Aesthetic Elements](#2-cyberpunk--telemetry-aesthetic-elements)
@@ -71,6 +72,7 @@ The design combines a **dark cyberpunk developer telemetry aesthetic** (matrix g
 ```text
 my-site-main/
 ├── index.html                   # Complete single-page application (HTML, CSS, JS)
+├── Abraham-Worku-CV.pdf         # Official Curriculum Vitae / Resume PDF
 ├── README.md                    # This complete documentation file
 └── certificates/                # Local verified credential documents & previews
     ├── Coursera-Johns-Hopkins-Web-Development-Specialization.pdf
@@ -199,7 +201,7 @@ Vertical timeline featuring 3 career milestones:
 ### 10. Featured Projects
 Showcase grid of practical systems:
 * **Habiye Academy:** Custom registration and admission portal (PHP / Full-Stack).
-* **Dr-Goraw:** Interactive frontend web application hosted on GitHub Pages.
+* **Dr-Goraw:** Interactive frontend web application deployed live on Netlify.
 * **AskDocs:** Document exploration & QA platform with vector search and AI workflows.
 * **SentimentScope:** Real-time NLP sentiment analysis and visual reporting tool.
 
@@ -215,11 +217,16 @@ Interactive credential section syncing 52 verified credentials across Cisco, IBM
   * Dedicated banner highlighting the **Johns Hopkins University: HTML, CSS, and Javascript for Web Developers Specialization** (4/4 courses completed).
   * Direct link to local PDF certificate (`certificates/Coursera-Johns-Hopkins-Web-Development-Specialization.pdf`) and Coursera verification (`BVXDIL43FKOJ`).
 
-### 12. Call to Action (CTA) & Footer
+### 12. Curriculum Vitae (CV) Section
+* **Official CV Release:** Dedicated `#cv` section hosting Abraham's verified 3-page Curriculum Vitae.
+* **Interactive PDF Viewer:** Embedded responsive preview iframe with full-screen popout and graceful fallback.
+* **Direct Actions:** One-click "Open CV in New Tab" and "Download PDF" buttons linking to `Abraham-Worku-CV.pdf`.
+
+### 13. Call to Action (CTA) & Footer
 * **Conversion Banner:** Clear prompts to start a contract on Upwork or connect via LinkedIn.
 * **Footer:** Social icons (Upwork, GitHub, LinkedIn, Credly) and copyright notice.
 
-### 13. Command Palette Modal & Toast Notifications
+### 14. Command Palette Modal & Toast Notifications
 * **Command Palette Modal (`#cmd-palette-backdrop`):** Floating keyboard-driven spotlight dialog (`⌘K` / `Ctrl+K`) for fast keyboard navigation and actions.
 * **Tech Toast (`#tech-toast`):** Minimal popup element informing the user of copy actions.
 
